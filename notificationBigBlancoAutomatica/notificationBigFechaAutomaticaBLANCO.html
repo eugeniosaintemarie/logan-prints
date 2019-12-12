@@ -1,0 +1,160 @@
+<!DOCTYPE html5>
+<html>
+<head>
+<title>notificationBigFechaAutomaticaBLANCO</title>
+</head>
+<body>
+
+<div class="container">
+    <p id="fecha">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+    </p>
+</div>
+<span id="fecha"></span><p id="dia"></p><p id="mes"></p><p id="ano"></p>
+
+<img src="screenshot.jpg" width="320px">
+<img class="fondo" src="fondo.jpg">
+
+<img id="output1"/>
+<p class="titulo" id="titulo"></p>
+<p class="descripcion" id="descripcion"></p>
+<img id="output2"/>
+
+<div id="selector">
+<input type="text" id="entrada1" value="Titulo">
+<button onclick="myFunction1()">ACTUALIZAR</button>
+<input type="text" id="entrada2" value="Descripcion">
+<button onclick="myFunction2()">ACTUALIZAR</button>
+<br><br>
+96x96: <input type="file" accept="image/*" onchange="loadFile(event)"> | 400x250: <input type="file" accept="image/*" onchange="loadFile2(event)">
+</div>
+
+<style>
+#fecha {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 25px;
+    top: 0.25px;
+}
+#dia {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    /*mesdoble*/
+    left: 160px;
+    top: 0.25px;
+}
+#mes {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 190px;
+    top: 0.25px;
+}
+#ano {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 220px;
+    top: 0.25px;
+}
+.fondo {
+    position: absolute;
+    left: 104px;
+    top: 155px;
+    width: 224px;
+    height: 96px;
+}
+.titulo {
+    color: black;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 108px;
+    top: 170px;
+}
+.descripcion {
+    color: black;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 108px;
+    top: 190px;
+}
+#output1 {
+    position: absolute;
+    left: 8px;
+    top: 155px; 
+}
+#output2 {
+    position: absolute;
+    left: 8px;
+    top: 250px;
+    width: 320px;
+}
+#selector {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 60%;
+    background-color: #0078D7;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+</style>
+
+<script type="text/javascript">
+    window.onload = function () {
+        DisplayCurrentTime();
+    };
+    function DisplayCurrentTime() {
+        var date = new Date();
+        var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "PM" : "AM";
+        hours = hours < 10 ? "0" + hours : hours;
+        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        time = hours + ":" + minutes + " " + am_pm;
+        var fecha = document.getElementById("fecha");
+        fecha.innerHTML = time;
+    };
+
+    var a = new Date();
+    document.getElementById("dia").innerHTML = a.getDate() + "/";
+    var b = new Date();
+    document.getElementById("mes").innerHTML = b.getMonth()+1 + "/";
+    var c = new Date();
+    document.getElementById("ano").innerHTML = c.getFullYear();
+
+    function myFunction1() {
+      var e = document.getElementById("entrada1").value;
+      document.getElementById("titulo").innerHTML = e;
+    }
+    function myFunction2() {
+      var f = document.getElementById("entrada2").value;
+      document.getElementById("descripcion").innerHTML = f;
+    }
+
+    var loadFile = function(event) {
+        var output1 = document.getElementById('output1');
+        output1.src = URL.createObjectURL(event.target.files[0]);
+    };
+    var loadFile2 = function(event) {
+        var output2 = document.getElementById('output2');
+        output2.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+
+</body>
+</html>

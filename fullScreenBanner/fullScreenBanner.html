@@ -1,0 +1,46 @@
+<!DOCTYPE html5>
+<html>
+<head>
+<title>fullScreenBanner</title>
+</head>
+<body>
+
+<img id="output"/>
+<img class="x" src="x.png">
+
+<div id="selector">320x480: <input type="file" accept="image/*" onchange="loadFile(event)"></div>
+
+<style>
+.x {
+    position: absolute;
+    align-content: right;
+    left: 295px;
+}
+#output {
+    position: absolute;
+    left: 8px;
+}
+#selector {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 60%;
+    background-color: #0078D7;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+</style>
+
+<script>
+    var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+
+</body>
+</html>

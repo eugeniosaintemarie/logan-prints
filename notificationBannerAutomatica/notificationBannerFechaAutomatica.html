@@ -1,0 +1,106 @@
+<!DOCTYPE html5>
+<html>
+<head>
+<title>notificationBannerFechaAutomatica</title>
+</head>
+<body>
+
+<div class="container">
+    <p id="fecha">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+    </p>
+</div>
+<span id="fecha"></span><p id="dia"></p><p id="mes"></p><p id="ano"></p>
+
+<div id="selector">320x50: <input type="file" accept="image/*" onchange="loadFile(event)"></div>
+
+<img src="screenshot.jpg" width="320px">
+<img id="output"/>
+
+<style>
+#fecha {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 25px;
+    top: 0.25px;
+}
+#dia {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    /*mesdoble*/
+    left: 150px;
+    top: 0.25px;
+}
+#mes {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 180px;
+    top: 0.25px;
+}
+#ano {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 210px;
+    top: 0.25px;
+}
+#output {
+    position: absolute;
+    left: 8px;
+    top: 155px;
+}
+#selector {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 60%;
+    background-color: #0078D7;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+</style>
+
+<script type="text/javascript">
+    window.onload = function () {
+        DisplayCurrentTime();
+    };
+    function DisplayCurrentTime() {
+        var date = new Date();
+        var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "p.m." : "a.m.";
+        hours = hours < 10 ? "0" + hours : hours;
+        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        time = hours + ":" + minutes + " " + am_pm;
+        var fecha = document.getElementById("fecha");
+        fecha.innerHTML = time;
+    };
+
+    var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+
+    var a = new Date();
+    document.getElementById("dia").innerHTML = a.getDate() + "/";
+    var b = new Date();
+    document.getElementById("mes").innerHTML = b.getMonth()+1 + "/";
+    var c = new Date();
+    document.getElementById("ano").innerHTML = c.getFullYear();
+</script>
+
+</body>
+</html>
