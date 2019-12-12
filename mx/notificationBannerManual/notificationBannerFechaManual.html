@@ -1,0 +1,60 @@
+<!DOCTYPE html5>
+<html>
+<head>
+<title>notificationBannerFechaManual</title>
+</head>
+<body>
+
+<p id="fecha"></p>
+<img src="screenshot.jpg" width="320px">
+<img id="output"/>
+
+<div id="selector">
+<input type="text" id="entrada" value="Fecha"><button onclick="myFunction()">ACTUALIZAR</button>
+<br><br>
+320x50: <input type="file" accept="image/*" onchange="loadFile(event)">
+</div>
+
+<style>
+#fecha {
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 25px;
+    top: 1px;
+}
+#output {
+    position: absolute;
+    left: 8px;
+    top: 155px;
+}
+#selector {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 60%;
+    background-color: #0078D7;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+</style>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("entrada").value;
+      document.getElementById("fecha").innerHTML = x;
+    }
+
+    var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+
+</body>
+</html>

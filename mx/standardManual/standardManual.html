@@ -1,0 +1,78 @@
+<!DOCTYPE html5>
+<html>
+<head>
+<title>standardManual</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="fecha"></p>
+<img class="barra" src="barra.jpg" width="300">
+
+<div style="overflow: hidden; width: 300px; height: 462px;">
+<iframe id="iframe" width="317" height="477" frameBorder="0" style="overflow:hidden;" src="https://www.clarin.com/mundo/bougainville-remota-isla-pacifico-buscar-convertirse-pais-joven-mundo_0_uV2oPFUE.html"></iframe>
+</div>
+
+<img id="output"/>
+
+<div id="selector">
+    <input type="text" id="entrada" value="Fecha"><button onclick="myFunction()">ACTUALIZAR</button>
+    <br><br>
+    320x50: <input type="file" accept="image/*" onchange="loadFile(event)">
+    <br><br>
+    <input type="text" id="id">
+    <input type="button" value="Cambiar sitio" onClick="newSite()">
+</div>
+
+<style>
+#fecha {
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 75px;
+    top: -7px;
+}
+#output {
+    position: absolute;
+    bottom: 145px;
+    left: 10px;
+    width: 296px;
+}
+#selector {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 60%;
+    background-color: #0078D7;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+</style>
+
+<script type="text/javascript">
+    function myFunction() {
+      var x = document.getElementById("entrada").value;
+      document.getElementById("fecha").innerHTML = x;
+    }
+
+    var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+    function newSite() {
+    var site = $('#id').val();
+    var iframe = document.getElementById('iframe');
+    iframe.src = site;
+    iframe.src = iframe.src;
+    }     
+</script>
+
+</body>
+</html>
