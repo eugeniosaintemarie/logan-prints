@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>sticker auto</title>
+    <title>standard auto</title>
     <script
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
@@ -25,7 +25,7 @@
       <iframe
         id="iframe"
         width="317"
-        height="495"
+        height="477"
         frameborder="0"
         style="overflow:hidden;"
         src="https://www.clarin.com/mundo/bougainville-remota-isla-pacifico-buscar-convertirse-pais-joven-mundo_0_uV2oPFUE.html"
@@ -33,11 +33,9 @@
     </div>
 
     <img id="output" />
-    <img class="x" src="x.png" />
 
     <div id="selector">
-      300x250:
-      <input type="file" accept="image/*" onchange="loadFile(event)" />
+      320x50: <input type="file" accept="image/*" onchange="loadFile(event)" />
       <br /><br />
       <input type="text" id="id" />
       <input type="button" value="Cambiar sitio" onClick="newSite()" />
@@ -80,17 +78,11 @@
         left: 181px;
         top: -4px;
       }
-      .x {
-        position: absolute;
-        align-content: right;
-        left: 235px;
-        bottom: 270px;
-      }
       #output {
         position: absolute;
-        bottom: 129px;
-        left: 60px;
-        width: 15%;
+        bottom: 127px;
+        left: 10px;
+        width: 296px;
       }
       #selector {
         position: absolute;
@@ -112,16 +104,14 @@
       };
       function DisplayCurrentTime() {
         var date = new Date();
-        var hours =
-        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
-        hours = hours < 10 ? "0" + hours : hours;
-        var minutes =
-          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        var hours = date.getHours() > 12 ? date.getHours() - 12+9 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? ""/*p.m.*/ : ""/*a.m.*/;
+        hours = hours < 10 ? "" + hours : hours;
+        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         time = hours + ":" + minutes + " " + am_pm;
         var fecha = document.getElementById("fecha");
         fecha.innerHTML = time;
-      }
+    };
 
       var a = new Date();
       document.getElementById("dia").innerHTML = a.getDate() + "/";

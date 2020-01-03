@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-      <title>noti banner auto</title>
+    <title>noti banner auto</title>
   </head>
   <body>
     <div class="container">
@@ -21,99 +21,101 @@
       </p>
     </div>
     <span id="fecha1"></span>
+    <p id="dia01"></p>
     <p id="dia1"></p>
     <p id="mes1"></p>
-    <p id="ano1"></p>
     <span id="fecha2"></span>
+    <p id="dia02"></p>
     <p id="dia2"></p>
     <p id="mes2"></p>
-    <p id="ano2"></p>
 
     <div id="selector">
       320x50: <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
 
-    <img src="screenshot1.jpg" width="320px" />
-    <img src="screenshot2.jpg" width="320px" />
+    <img src="screenshot1.jpg" width="290px" />
+    <img src="screenshot2.jpg" width="290px" />
     <img id="output1" />
     <img id="output2" />
 
     <style>
       #fecha1 {
         color: #f8f8f8;
+        font-size: 15px;
         font-weight: 600;
-        font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 25px;
-        top: 0.25px;
+        left: 20px;
+        top: 2px;
       }
-      #fecha2 {
-        color: black;
-        font-size: 20px;
-        font-weight: 600;
+      #dia01 {
+        color: #f8f8f8;
+        font-size: 13px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 350px;
-        top: 44.25px;
+        left: 20px;
+        top: 40px;
       }
       #dia1 {
         color: #f8f8f8;
-        font-size: 20px;
+        font-size: 13px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 170px; /*150px mes doble*/
-        top: 0.25px;
+        left: 46px;
+        top: 40px;
       }
       #mes1 {
         color: #f8f8f8;
-        font-size: 20px;
+        font-size: 13px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 190px; /*180px mes doble*/
-        top: 0.25px;
+        left: 76px; /*180px día doble*/
+        top: 40px;
       }
-      #ano1 {
-        color: #f8f8f8;
-        font-size: 20px;
+      #fecha2 {
+        color: black;
+        font-size: 18px;
+        font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 210px;
-        top: 0.25px;
+        left: 315px;
+        top: 90px;
+      }
+      #dia02 {
+        color: black;
+        font-size: 18px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 420px;
+        top: 90px;
       }
       #dia2 {
         color: black;
-        font-size: 20px;
+        font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 470px; /*450px mes doble*/
-        top: 44.25px;
+        left: 458px;
+        top: 90px;
       }
       #mes2 {
         color: black;
-        font-size: 20px;
+        font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 490px; /*480px mes doble*/
-        top: 44.25px;
-      }
-      #ano2 {
-        color: black;
-        font-size: 20px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 510px;
-        top: 44.25px;
+        left: 498px; /*180px día doble*/
+        top: 90px;
       }
       #output1 {
         position: absolute;
-        left: 8px;
-        top: 164px;
+        left: 11px;
+        top: 153px;
+        width: 284px;
       }
       #output2 {
         position: absolute;
-        left: 332px;
-        top: 166px;
+        left: 302px;
+        top: 200px;
+        width: 290px;
       }
       #selector {
         position: absolute;
@@ -133,12 +135,16 @@
     <script type="text/javascript">
       window.onload = function() {
         DisplayCurrentTime();
+        myDay1();
+        myDay2();
+        myMonth1();
+        myMonth2();
       };
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
+          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
         hours = hours < 10 ? "0" + hours : hours;
         var minutes =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
@@ -149,18 +155,74 @@
         fecha2.innerHTML = time;
       }
 
+      function myDay1() {
+        var a = new Date();
+        var days = new Array(7);
+        days[0] = "Dom";
+        days[1] = "Seg";
+        days[2] = "Ter";
+        days[3] = "Qua";
+        days[4] = "Qui";
+        days[5] = "Sex";
+        days[6] = "Sáb";
+        var r = days[a.getDay()] + ",";
+        document.getElementById("dia01").innerHTML = r;
+      }
+      function myDay2() {
+        var aa = new Date();
+        var days = new Array(7);
+        days[0] = "Dom";
+        days[1] = "Seg";
+        days[2] = "Ter";
+        days[3] = "Qua";
+        days[4] = "Qui";
+        days[5] = "Sex";
+        days[6] = "Sáb";
+        var rr = days[aa.getDay()] + ",";
+        document.getElementById("dia02").innerHTML = rr;
+      }
+
       var a = new Date();
-      document.getElementById("dia1").innerHTML = a.getDate() + "/";
-      var b = new Date();
-      document.getElementById("mes1").innerHTML = b.getMonth() + 1 + "/";
-      var c = new Date();
-      document.getElementById("ano1").innerHTML = c.getFullYear();
+      document.getElementById("dia1").innerHTML = a.getDate() + " de ";
       var a = new Date();
-      document.getElementById("dia2").innerHTML = a.getDate() + "/";
-      var b = new Date();
-      document.getElementById("mes2").innerHTML = b.getMonth() + 1 + "/";
-      var c = new Date();
-      document.getElementById("ano2").innerHTML = c.getFullYear();
+      document.getElementById("dia2").innerHTML = a.getDate() + " de ";
+
+      function myMonth1() {
+        var month = new Array();
+        month[0] = "Jan";
+        month[1] = "Fev";
+        month[2] = "Mar";
+        month[3] = "Abr";
+        month[4] = "Mai";
+        month[5] = "Jun";
+        month[6] = "Jul";
+        month[7] = "Ago";
+        month[8] = "Set";
+        month[9] = "Out";
+        month[10] = "Nov";
+        month[11] = "Dez";
+        var d = new Date();
+        var n = month[d.getMonth()];
+        document.getElementById("mes1").innerHTML = n;
+      }
+      function myMonth2() {
+        var month = new Array();
+        month[0] = "Jan";
+        month[1] = "Fev";
+        month[2] = "Mar";
+        month[3] = "Abr";
+        month[4] = "Mai";
+        month[5] = "Jun";
+        month[6] = "Jul";
+        month[7] = "Ago";
+        month[8] = "Set";
+        month[9] = "Out";
+        month[10] = "Nov";
+        month[11] = "Dez";
+        var d = new Date();
+        var n = month[d.getMonth()];
+        document.getElementById("mes2").innerHTML = n;
+      }
 
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");

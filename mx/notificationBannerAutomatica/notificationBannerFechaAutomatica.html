@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>noti BIG auto NEGRO</title>
+      <title>noti banner auto</title>
   </head>
   <body>
     <div class="container">
@@ -29,31 +29,14 @@
     <p id="mes2"></p>
     <p id="ano2"></p>
 
+    <div id="selector">
+      320x50: <input type="file" accept="image/*" onchange="loadFile(event)" />
+    </div>
+
     <img src="screenshot1.jpg" width="320px" />
     <img src="screenshot2.jpg" width="320px" />
-    <img class="fondo1" src="fondo.jpg" />
-    <img class="fondo2" src="fondo.jpg" />
-
     <img id="output1" />
-    <p class="titulo1" id="titulo1"></p>
-    <p class="descripcion1" id="descripcion1"></p>
     <img id="output2" />
-    <img id="output11" />
-    <p class="titulo2" id="titulo2"></p>
-    <p class="descripcion2" id="descripcion2"></p>
-    <img id="output22" />
-
-    <div id="selector">
-      <input type="text" id="entrada1" value="Titulo" />
-      <button onclick="myFunction1()">ACTUALIZAR</button>
-      <input type="text" id="entrada2" value="Descripcion" />
-      <button onclick="myFunction2()">ACTUALIZAR</button>
-      <br /><br />
-      96x96: <input type="file" accept="image/*" onchange="loadFile(event)" />
-      <br /><br />
-      400x250:
-      <input type="file" accept="image/*" onchange="loadFile2(event)" />
-    </div>
 
     <style>
       #fecha1 {
@@ -75,7 +58,7 @@
         top: 44.25px;
       }
       #dia1 {
-        color: black;
+        color: #f8f8f8;
         font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -122,54 +105,6 @@
         left: 510px;
         top: 44.25px;
       }
-      .fondo1 {
-        position: absolute;
-        left: 104px;
-        top: 164px;
-        width: 223.5px;
-        height: 96px;
-      }
-      .fondo2 {
-        position: absolute;
-        left: 428px;
-        top: 166px;
-        width: 223.5px;
-        height: 96px;
-      }
-      .titulo1 {
-        color: white;
-        font-size: 15px;
-        font-weight: 600;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 108px;
-        top: 178px;
-      }
-      .descripcion1 {
-        color: white;
-        font-size: 12px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 108px;
-        top: 198px;
-      }
-      .titulo2 {
-        color: white;
-        font-size: 15px;
-        font-weight: 600;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 432px;
-        top: 180px;
-      }
-      .descripcion2 {
-        color: white;
-        font-size: 12px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 432px;
-        top: 200px;
-      }
       #output1 {
         position: absolute;
         left: 8px;
@@ -177,26 +112,14 @@
       }
       #output2 {
         position: absolute;
-        left: 8px;
-        top: 260px;
-        width: 320px;
-      }
-      #output11 {
-        position: absolute;
         left: 332px;
         top: 166px;
-      }
-      #output22 {
-        position: absolute;
-        left: 332px;
-        top: 262px;
-        width: 320px;
       }
       #selector {
         position: absolute;
         top: 50%;
-        left: 53%;
-        width: 41.5%;
+        left: 55%;
+        width: 28%;
         background-color: #0078d7;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -213,18 +136,16 @@
       };
       function DisplayCurrentTime() {
         var date = new Date();
-        var hours =
-        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
-        hours = hours < 10 ? "0" + hours : hours;
-        var minutes =
-          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        var hours = date.getHours() > 12 ? date.getHours() - 12+9 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? ""/*p.m.*/ : ""/*a.m.*/;
+        hours = hours < 10 ? "" + hours : hours;
+        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         time = hours + ":" + minutes + " " + am_pm;
         var fecha1 = document.getElementById("fecha1");
         var fecha2 = document.getElementById("fecha2");
         fecha1.innerHTML = time;
         fecha2.innerHTML = time;
-      }
+    };
 
       var a = new Date();
       document.getElementById("dia1").innerHTML = a.getDate() + "/";
@@ -239,28 +160,11 @@
       var c = new Date();
       document.getElementById("ano2").innerHTML = c.getFullYear();
 
-      function myFunction1() {
-        var e = document.getElementById("entrada1").value;
-        document.getElementById("titulo1").innerHTML = e;
-        document.getElementById("titulo2").innerHTML = e;
-      }
-      function myFunction2() {
-        var f = document.getElementById("entrada2").value;
-        document.getElementById("descripcion1").innerHTML = f;
-        document.getElementById("descripcion2").innerHTML = f;
-      }
-
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
-        var output11 = document.getElementById("output11");
-        output1.src = URL.createObjectURL(event.target.files[0]);
-        output11.src = URL.createObjectURL(event.target.files[0]);
-      };
-      var loadFile2 = function(event) {
         var output2 = document.getElementById("output2");
-        var output22 = document.getElementById("output22");
+        output1.src = URL.createObjectURL(event.target.files[0]);
         output2.src = URL.createObjectURL(event.target.files[0]);
-        output22.src = URL.createObjectURL(event.target.files[0]);
       };
     </script>
   </body>

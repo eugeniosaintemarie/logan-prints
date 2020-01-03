@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>noti BIG auto NEGRO</title>
+    <title>noti BIG auto BLANCO</title>
   </head>
   <body>
     <div class="container">
@@ -75,7 +75,7 @@
         top: 44.25px;
       }
       #dia1 {
-        color: black;
+        color: #f8f8f8;
         font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -137,7 +137,7 @@
         height: 96px;
       }
       .titulo1 {
-        color: white;
+        color: black;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -146,7 +146,7 @@
         top: 178px;
       }
       .descripcion1 {
-        color: white;
+        color: black;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -154,7 +154,7 @@
         top: 198px;
       }
       .titulo2 {
-        color: white;
+        color: black;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -163,7 +163,7 @@
         top: 180px;
       }
       .descripcion2 {
-        color: white;
+        color: black;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -213,18 +213,16 @@
       };
       function DisplayCurrentTime() {
         var date = new Date();
-        var hours =
-        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
-        hours = hours < 10 ? "0" + hours : hours;
-        var minutes =
-          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        var hours = date.getHours() > 12 ? date.getHours() - 12+9 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? ""/*p.m.*/ : ""/*a.m.*/;
+        hours = hours < 10 ? "" + hours : hours;
+        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         time = hours + ":" + minutes + " " + am_pm;
         var fecha1 = document.getElementById("fecha1");
         var fecha2 = document.getElementById("fecha2");
         fecha1.innerHTML = time;
         fecha2.innerHTML = time;
-      }
+    };
 
       var a = new Date();
       document.getElementById("dia1").innerHTML = a.getDate() + "/";
