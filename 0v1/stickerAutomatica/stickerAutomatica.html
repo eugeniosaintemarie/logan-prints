@@ -1,0 +1,146 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <title>sticker auto</title>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <p id="fecha">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+      </p>
+    </div>
+    <span id="fecha"></span>
+    <p id="dia"></p>
+    <p id="mes"></p>
+    <p id="ano"></p>
+    <img class="barra" src="barra.jpg" width="300" height="20" />
+
+    <div style="overflow: hidden; width: 300px; height: 480px;">
+      <iframe
+        id="iframe"
+        width="317"
+        height="495"
+        frameborder="0"
+        style="overflow:hidden;"
+        src="https://www.clarin.com/mundo/bougainville-remota-isla-pacifico-buscar-convertirse-pais-joven-mundo_0_uV2oPFUE.html"
+      ></iframe>
+    </div>
+
+    <img id="output" />
+    <img class="x" src="x.png" />
+
+    <div id="selector">
+      300x250:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+      <br /><br />
+      <input type="text" id="id" />
+      <input type="button" value="Cambiar sitio" onClick="newSite()" />
+    </div>
+
+    <style>
+      #fecha {
+        color: black;
+        font-size: 13px;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 75px;
+        top: -4px;
+      }
+      #dia {
+        color: black;
+        font-size: 13px;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 155px; /*mesDoble 140px;*/
+        top: -4px;
+      }
+      #mes {
+        color: black;
+        font-size: 13px;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 168px; /*mesDoble 160px;*/
+        top: -4px;
+      }
+      #ano {
+        color: black;
+        font-size: 13px;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 181px;
+        top: -4px;
+      }
+      .x {
+        position: absolute;
+        align-content: right;
+        left: 235px;
+        bottom: 270px;
+      }
+      #output {
+        position: absolute;
+        bottom: 129px;
+        left: 60px;
+        width: 15%;
+      }
+      #selector {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        width: 28%;
+        background-color: #0078d7;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function() {
+        DisplayCurrentTime();
+      };
+      function DisplayCurrentTime() {
+        var date = new Date();
+        var hours =
+        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
+        hours = hours < 10 ? "0" + hours : hours;
+        var minutes =
+          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        time = hours + ":" + minutes + " " + am_pm;
+        var fecha = document.getElementById("fecha");
+        fecha.innerHTML = time;
+      }
+
+      var a = new Date();
+      document.getElementById("dia").innerHTML = a.getDate() + "/";
+      var b = new Date();
+      document.getElementById("mes").innerHTML = b.getMonth() + 1 + "/";
+      var c = new Date();
+      document.getElementById("ano").innerHTML = c.getFullYear();
+
+      var loadFile = function(event) {
+        var output = document.getElementById("output");
+        output.src = URL.createObjectURL(event.target.files[0]);
+      };
+
+      function newSite() {
+        var site = $("#id").val();
+        var iframe = document.getElementById("iframe");
+        iframe.src = site;
+        iframe.src = iframe.src;
+      }
+    </script>
+  </body>
+</html>
