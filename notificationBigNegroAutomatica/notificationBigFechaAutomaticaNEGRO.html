@@ -49,7 +49,8 @@
       <input type="text" id="entrada2" value="Descripcion" />
       <button onclick="myFunction2()">ACTUALIZAR</button>
       <br /><br />
-      96x96: <input type="file" accept="image/*" onchange="loadFile(event)" />
+      72x72/96x96:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
       <br /><br />
       400x250:
       <input type="file" accept="image/*" onchange="loadFile2(event)" />
@@ -194,7 +195,7 @@
       }
       #selector {
         position: absolute;
-        top: 50%;
+        top: 10%;
         left: 53%;
         width: 41.5%;
         background-color: #0078d7;
@@ -214,8 +215,8 @@
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
+          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
         hours = hours < 10 ? "0" + hours : hours;
         var minutes =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();

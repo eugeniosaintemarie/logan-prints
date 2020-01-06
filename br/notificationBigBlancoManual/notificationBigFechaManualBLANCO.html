@@ -2,13 +2,35 @@
 <html>
   <head>
     <title>noti BIG manual BLANCO</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px;
+      }
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
   </head>
   <body>
-    <p id="fecha1"></p>
-    <p id="fecha2"></p>
+    <div class="container">
+      <p id="hora1"></p>
+    </div>
+    <div class="container">
+      <p id="hora2"></p>
+    </div>
+    <span id="fecha1"></span>
+    <span id="fecha2"></span>
 
-    <img src="screenshot1.jpg" width="320px" />
-    <img src="screenshot2.jpg" width="320px" />
+    <img src="screenshot1.jpg" width="290px" />
+    <img src="screenshot2.jpg" width="290px" />
     <img class="fondo1" src="fondo.jpg" />
     <img class="fondo2" src="fondo.jpg" />
 
@@ -22,53 +44,94 @@
     <img id="output22" />
 
     <div id="selector">
-      <input type="text" id="entrada0" value="Fecha" /><button
-        onclick="myFunction0()"
-      >
-        ACTUALIZAR
-      </button>
+      <input type="text" id="entradaHora" value="Hora" />
+      <button onclick="hora()">ACTUALIZAR</button>
+      <input type="text" id="entradaFecha" value="Fecha" />
+      <button onclick="fecha()">ACTUALIZAR</button>
       <br /><br />
       <input type="text" id="entrada1" value="Titulo" />
-      <button onclick="myFunction1()">ACTUALIZAR</button>
+      <button onclick="titulo()">ACTUALIZAR</button>
       <input type="text" id="entrada2" value="Descripcion" />
-      <button onclick="myFunction2()">ACTUALIZAR</button>
+      <button onclick="descripcion()">ACTUALIZAR</button>
+      <br /><br />
       <br /><br />
       72x72/96x96:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
       <br /><br />
       400x250:
       <input type="file" accept="image/*" onchange="loadFile2(event)" />
+      <br /><br />
+      <div class="row">
+        <div class="column">
+          <p>
+            Lunes: Segunda-feira<br />
+            Martes: Terça-Feira<br />
+            Miercoles: Quarta-Feira<br />
+            Jueves: Quinta-Feira<br />
+            Viernes: Sexta-Feira<br />
+            Sabado: Sábado<br />
+            Domingo: Domingo<br />
+          </p>
+        </div>
+        <div class="column">
+          <p>
+            Enero: Janeiro<br />
+            Febrero: Fevereiro<br />
+            Marzo: Março<br />
+            Abril: Abril<br />
+            Mayo: Maio<br />
+            Junio: Junho<br />
+            Julio: Julho<br />
+            Agosto: Agosto<br />
+            Septiembre: Setembro<br />
+            Octubre: Outubro<br />
+            Noviembre: Novembro<br />
+            Diciembre: Dezembro<br />
+          </p>
+        </div>
+      </div>
     </div>
 
     <style>
-      #fecha1 {
+      #hora1 {
         color: #f8f8f8;
-        font-size: 20px;
+        font-size: 15px;
+        font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 25px;
-        top: 1px;
+        left: 20px;
+        top: 2px;
+      }
+      #fecha1 {
+        color: #f8f8f8;
+        font-size: 13px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 20px;
+        top: 51px;
+      }
+      #hora2 {
+        color: black;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 315px;
+        top: 90px;
       }
       #fecha2 {
         color: black;
-        font-size: 20px;
+        font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 345px;
-        top: 44.25px;
+        left: 420px;
+        top: 107px;
       }
       .fondo1 {
         position: absolute;
         left: 104px;
-        top: 164px;
-        width: 223.5px;
-        height: 96px;
-      }
-      .fondo2 {
-        position: absolute;
-        left: 429px;
-        top: 166px;
-        width: 223.5px;
+        top: 153px;
+        width: 191px;
         height: 96px;
       }
       .titulo1 {
@@ -78,7 +141,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
         left: 108px;
-        top: 178px;
+        top: 162px;
       }
       .descripcion1 {
         color: black;
@@ -86,7 +149,25 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
         left: 108px;
-        top: 198px;
+        top: 190px;
+      }
+      #output1 {
+        position: absolute;
+        left: 11px;
+        top: 153px;
+      }
+      #output2 {
+        position: absolute;
+        left: 11px;
+        top: 251px;
+        width: 284px;
+      }
+      .fondo2 {
+        position: absolute;
+        left: 398px;
+        top: 200px;
+        width: 194px;
+        height: 96px;
       }
       .titulo2 {
         color: black;
@@ -94,47 +175,36 @@
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 432px;
-        top: 180px;
+        left: 403px;
+        top: 211px;
       }
       .descripcion2 {
         color: black;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 432px;
-        top: 200px;
-      }
-      #output1 {
-        position: absolute;
-        left: 8px;
-        top: 164px;
-      }
-      #output2 {
-        position: absolute;
-        left: 8px;
-        top: 260px;
-        width: 320px;
+        left: 403px;
+        top: 235px;
       }
       #output11 {
         position: absolute;
-        left: 332px;
-        top: 166px;
+        left: 302px;
+        top: 200px;
       }
       #output22 {
         position: absolute;
-        left: 332px;
-        top: 262px;
-        width: 320px;
+        left: 302px;
+        top: 296px;
+        width: 290px;
       }
       #selector {
         position: absolute;
         top: 10%;
-        left: 53%;
-        width: 41.5%;
+        left: 50%;
+        width: 50%;
         background-color: #0078d7;
         padding-top: 15px;
-        padding-bottom: 15px;
+        padding-bottom: 0px;
         padding-left: 15px;
         padding-right: 15px;
         margin-top: -50px;
@@ -142,18 +212,23 @@
       }
     </style>
 
-    <script>
-      function myFunction0() {
-        var x = document.getElementById("entrada0").value;
+    <script type="text/javascript">
+      function hora() {
+        var x = document.getElementById("entradaHora").value;
+        document.getElementById("hora1").innerHTML = x;
+        document.getElementById("hora2").innerHTML = x;
+      }
+      function fecha() {
+        var x = document.getElementById("entradaFecha").value;
         document.getElementById("fecha1").innerHTML = x;
         document.getElementById("fecha2").innerHTML = x;
       }
-      function myFunction1() {
+      function titulo() {
         var e = document.getElementById("entrada1").value;
         document.getElementById("titulo1").innerHTML = e;
         document.getElementById("titulo2").innerHTML = e;
       }
-      function myFunction2() {
+      function descripcion() {
         var f = document.getElementById("entrada2").value;
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;

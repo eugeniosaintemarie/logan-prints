@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-      <title>noti banner auto</title>
+    <title>noti banner auto</title>
   </head>
   <body>
     <div class="container">
@@ -28,16 +28,14 @@
     <p id="dia2"></p>
     <p id="mes2"></p>
     <p id="ano2"></p>
-
     <div id="selector">
-      320x50: <input type="file" accept="image/*" onchange="loadFile(event)" />
+      320x50/728x90:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
-
     <img src="screenshot1.jpg" width="320px" />
     <img src="screenshot2.jpg" width="320px" />
     <img id="output1" />
     <img id="output2" />
-
     <style>
       #fecha1 {
         color: #f8f8f8;
@@ -47,15 +45,6 @@
         position: absolute;
         left: 25px;
         top: 0.25px;
-      }
-      #fecha2 {
-        color: black;
-        font-size: 20px;
-        font-weight: 600;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 350px;
-        top: 44.25px;
       }
       #dia1 {
         color: #f8f8f8;
@@ -80,6 +69,15 @@
         position: absolute;
         left: 210px;
         top: 0.25px;
+      }
+      #fecha2 {
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 350px;
+        top: 44.25px;
       }
       #dia2 {
         color: black;
@@ -117,9 +115,9 @@
       }
       #selector {
         position: absolute;
-        top: 50%;
+        top: 10%;
         left: 55%;
-        width: 28%;
+        width: 32%;
         background-color: #0078d7;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -129,7 +127,6 @@
         margin-left: -50px;
       }
     </style>
-
     <script type="text/javascript">
       window.onload = function() {
         DisplayCurrentTime();
@@ -137,8 +134,8 @@
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
+          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
         hours = hours < 10 ? "0" + hours : hours;
         var minutes =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
@@ -148,7 +145,6 @@
         fecha1.innerHTML = time;
         fecha2.innerHTML = time;
       }
-
       var a = new Date();
       document.getElementById("dia1").innerHTML = a.getDate() + "/";
       var b = new Date();
@@ -161,7 +157,6 @@
       document.getElementById("mes2").innerHTML = b.getMonth() + 1 + "/";
       var c = new Date();
       document.getElementById("ano2").innerHTML = c.getFullYear();
-
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
         var output2 = document.getElementById("output2");

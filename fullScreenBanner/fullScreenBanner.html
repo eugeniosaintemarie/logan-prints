@@ -6,7 +6,6 @@
   <body>
     <img id="output" />
     <img class="x" src="x.png" />
-
     <div id="selector">
       320x480: <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
@@ -23,7 +22,7 @@
       }
       #selector {
         position: absolute;
-        top: 50%;
+        top: 10%;
         left: 35%;
         width: 28%;
         background-color: #0078d7;
@@ -35,7 +34,6 @@
         margin-left: -50px;
       }
     </style>
-
     <script>
       var loadFile = function(event) {
         var output = document.getElementById("output");

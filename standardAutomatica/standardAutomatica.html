@@ -4,7 +4,9 @@
     <title>standard auto</title>
     <script
       type="text/javascript"
+      ;
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+      ;
     ></script>
   </head>
   <body>
@@ -19,76 +21,67 @@
     <p id="dia"></p>
     <p id="mes"></p>
     <p id="ano"></p>
-    <img class="barra" src="barra.jpg" width="300" height="20" />
-
-    <div style="overflow: hidden; width: 300px; height: 480px;">
+    <div id="descarga"><img src="screenshot.jpg" width="320px" /></div>
+    <p id="url"></p>
+    <div id="ventana">
       <iframe
         id="iframe"
-        width="317"
-        height="477"
+        width="338"
+        height="481"
         frameborder="0"
         style="overflow:hidden;"
-        src="https://www.clarin.com/mundo/bougainville-remota-isla-pacifico-buscar-convertirse-pais-joven-mundo_0_uV2oPFUE.html"
+        src="https://www.clarin.com/"
       ></iframe>
     </div>
 
     <img id="output" />
-
     <div id="selector">
-      320x50: <input type="file" accept="image/*" onchange="loadFile(event)" />
-      <br /><br />
-      <input type="text" id="id" />
+      <input type="text" id="id" placeholder="incluido https://" />
       <input type="button" value="Cambiar sitio" onClick="newSite()" />
+      <br /><br />
+      320x50/300x50:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
-
     <style>
       #fecha {
-        color: black;
+        color: #6b6b6b;
         font-size: 13px;
-        font-weight: bold;
+        font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 75px;
+        left: 10px;
         top: -4px;
       }
-      #dia {
-        color: black;
-        font-size: 13px;
-        font-weight: bold;
+      #url {
+        color: #28292d;
+        background-color: #f1f2f6;
+        font-size: 15px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 155px; /*mesDoble 140px;*/
-        top: -4px;
+        left: 88px;
+        top: 28px;
+        overflow: hidden;
+        width: 10%;
+        height: 3.5%;
       }
-      #mes {
-        color: black;
-        font-size: 13px;
-        font-weight: bold;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      #ventana {
+        overflow: hidden;
+        width: 321px;
+        height: 465px;
+        top: 82px;
         position: absolute;
-        left: 168px; /*mesDoble 160px;*/
-        top: -4px;
-      }
-      #ano {
-        color: black;
-        font-size: 13px;
-        font-weight: bold;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 181px;
-        top: -4px;
       }
       #output {
         position: absolute;
-        bottom: 127px;
-        left: 10px;
-        width: 296px;
+        bottom: 88px;
+        left: 8px;
+        width: 321px;
       }
       #selector {
         position: absolute;
-        top: 50%;
+        top: 10%;
         left: 35%;
-        width: 28%;
+        width: 32%;
         background-color: #0078d7;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -105,8 +98,8 @@
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-        date.getHours() > 12 ? date.getHours() - 12+12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : "" /*a.m.*/;
+          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
         hours = hours < 10 ? "0" + hours : hours;
         var minutes =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
@@ -114,25 +107,18 @@
         var fecha = document.getElementById("fecha");
         fecha.innerHTML = time;
       }
-
-      var a = new Date();
-      document.getElementById("dia").innerHTML = a.getDate() + "/";
-      var b = new Date();
-      document.getElementById("mes").innerHTML = b.getMonth() + 1 + "/";
-      var c = new Date();
-      document.getElementById("ano").innerHTML = c.getFullYear();
-
-      var loadFile = function(event) {
-        var output = document.getElementById("output");
-        output.src = URL.createObjectURL(event.target.files[0]);
-      };
-
       function newSite() {
         var site = $("#id").val();
         var iframe = document.getElementById("iframe");
         iframe.src = site;
         iframe.src = iframe.src;
+        var x = document.getElementById("id").value;
+        document.getElementById("url").innerHTML = x;
       }
+      var loadFile = function(event) {
+        var output = document.getElementById("output");
+        output.src = URL.createObjectURL(event.target.files[0]);
+      };
     </script>
   </body>
 </html>

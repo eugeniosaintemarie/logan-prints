@@ -1,33 +1,33 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>noti BIG auto BLANCO</title>
+    <title>noti BIG manual NEGRO</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px;
+      }
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <p id="fecha1">
-        <span id="timer-days"></span>
-        <span id="timer-hours"></span>
-        <span id="timer-mins"></span>
-        <span id="timer-secs"></span>
-      </p>
+      <p id="hora1"></p>
     </div>
     <div class="container">
-      <p id="fecha2">
-        <span id="timer-days2"></span>
-        <span id="timer-hours2"></span>
-        <span id="timer-mins2"></span>
-        <span id="timer-secs2"></span>
-      </p>
+      <p id="hora2"></p>
     </div>
     <span id="fecha1"></span>
-    <p id="dia01"></p>
-    <p id="dia1"></p>
-    <p id="mes1"></p>
     <span id="fecha2"></span>
-    <p id="dia02"></p>
-    <p id="dia2"></p>
-    <p id="mes2"></p>
 
     <img src="screenshot1.jpg" width="290px" />
     <img src="screenshot2.jpg" width="290px" />
@@ -44,20 +44,56 @@
     <img id="output22" />
 
     <div id="selector">
+      <input type="text" id="entradaHora" value="Hora" />
+      <button onclick="hora()">ACTUALIZAR</button>
+      <input type="text" id="entradaFecha" value="Fecha" />
+      <button onclick="fecha()">ACTUALIZAR</button>
+      <br /><br />
       <input type="text" id="entrada1" value="Titulo" />
-      <button onclick="myFunction1()">ACTUALIZAR</button>
+      <button onclick="titulo()">ACTUALIZAR</button>
       <input type="text" id="entrada2" value="Descripcion" />
-      <button onclick="myFunction2()">ACTUALIZAR</button>
+      <button onclick="descripcion()">ACTUALIZAR</button>
+      <br /><br />
       <br /><br />
       72x72/96x96:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
       <br /><br />
       400x250:
       <input type="file" accept="image/*" onchange="loadFile2(event)" />
+      <br /><br />
+      <div class="row">
+        <div class="column">
+          <p>
+            Lunes: Segunda-feira<br />
+            Martes: Terça-Feira<br />
+            Miercoles: Quarta-Feira<br />
+            Jueves: Quinta-Feira<br />
+            Viernes: Sexta-Feira<br />
+            Sabado: Sábado<br />
+            Domingo: Domingo<br />
+          </p>
+        </div>
+        <div class="column">
+          <p>
+            Enero: Janeiro<br />
+            Febrero: Fevereiro<br />
+            Marzo: Março<br />
+            Abril: Abril<br />
+            Mayo: Maio<br />
+            Junio: Junho<br />
+            Julio: Julho<br />
+            Agosto: Agosto<br />
+            Septiembre: Setembro<br />
+            Octubre: Outubro<br />
+            Noviembre: Novembro<br />
+            Diciembre: Dezembro<br />
+          </p>
+        </div>
+      </div>
     </div>
 
     <style>
-      #fecha1 {
+      #hora1 {
         color: #f8f8f8;
         font-size: 15px;
         font-weight: 600;
@@ -66,31 +102,15 @@
         left: 20px;
         top: 2px;
       }
-      #dia01 {
+      #fecha1 {
         color: #f8f8f8;
         font-size: 13px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
         left: 20px;
-        top: 40px;
+        top: 51px;
       }
-      #dia1 {
-        color: #f8f8f8;
-        font-size: 13px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 46px;
-        top: 40px;
-      }
-      #mes1 {
-        color: #f8f8f8;
-        font-size: 13px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 76px; /*180px día doble*/
-        top: 40px;
-      }
-      #fecha2 {
+      #hora2 {
         color: black;
         font-size: 18px;
         font-weight: 600;
@@ -99,29 +119,13 @@
         left: 315px;
         top: 90px;
       }
-      #dia02 {
+      #fecha2 {
         color: black;
         font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
         left: 420px;
-        top: 90px;
-      }
-      #dia2 {
-        color: black;
-        font-size: 18px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 458px;
-        top: 90px;
-      }
-      #mes2 {
-        color: black;
-        font-size: 18px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 498px; /*180px día doble*/
-        top: 90px;
+        top: 107px;
       }
       .fondo1 {
         position: absolute;
@@ -131,7 +135,7 @@
         height: 96px;
       }
       .titulo1 {
-        color: black;
+        color: white;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -140,7 +144,7 @@
         top: 162px;
       }
       .descripcion1 {
-        color: black;
+        color: white;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -166,7 +170,7 @@
         height: 96px;
       }
       .titulo2 {
-        color: black;
+        color: white;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -175,7 +179,7 @@
         top: 211px;
       }
       .descripcion2 {
-        color: black;
+        color: white;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -196,11 +200,11 @@
       #selector {
         position: absolute;
         top: 10%;
-        left: 53%;
-        width: 42%;
+        left: 50%;
+        width: 50%;
         background-color: #0078d7;
         padding-top: 15px;
-        padding-bottom: 15px;
+        padding-bottom: 0px;
         padding-left: 15px;
         padding-right: 15px;
         margin-top: -50px;
@@ -209,103 +213,22 @@
     </style>
 
     <script type="text/javascript">
-      window.onload = function() {
-        DisplayCurrentTime();
-        myDay1();
-        myDay2();
-        myMonth1();
-        myMonth2();
-      };
-      function DisplayCurrentTime() {
-        var date = new Date();
-        var hours =
-          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
-        hours = hours < 10 ? "0" + hours : hours;
-        var minutes =
-          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-        time = hours + ":" + minutes + " " + am_pm;
-        var fecha1 = document.getElementById("fecha1");
-        var fecha2 = document.getElementById("fecha2");
-        fecha1.innerHTML = time;
-        fecha2.innerHTML = time;
+      function hora() {
+        var x = document.getElementById("entradaHora").value;
+        document.getElementById("hora1").innerHTML = x;
+        document.getElementById("hora2").innerHTML = x;
       }
-
-      function myDay1() {
-        var a = new Date();
-        var days = new Array(7);
-        days[0] = "Dom";
-        days[1] = "Seg";
-        days[2] = "Ter";
-        days[3] = "Qua";
-        days[4] = "Qui";
-        days[5] = "Sex";
-        days[6] = "Sáb";
-        var r = days[a.getDay()] + ",";
-        document.getElementById("dia01").innerHTML = r;
+      function fecha() {
+        var x = document.getElementById("entradaFecha").value;
+        document.getElementById("fecha1").innerHTML = x;
+        document.getElementById("fecha2").innerHTML = x;
       }
-      function myDay2() {
-        var aa = new Date();
-        var days = new Array(7);
-        days[0] = "Dom";
-        days[1] = "Seg";
-        days[2] = "Ter";
-        days[3] = "Qua";
-        days[4] = "Qui";
-        days[5] = "Sex";
-        days[6] = "Sáb";
-        var rr = days[aa.getDay()] + ",";
-        document.getElementById("dia02").innerHTML = rr;
-      }
-
-      var a = new Date();
-      document.getElementById("dia1").innerHTML = a.getDate() + " de ";
-      var a = new Date();
-      document.getElementById("dia2").innerHTML = a.getDate() + " de ";
-
-      function myMonth1() {
-        var month = new Array();
-        month[0] = "Jan";
-        month[1] = "Fev";
-        month[2] = "Mar";
-        month[3] = "Abr";
-        month[4] = "Mai";
-        month[5] = "Jun";
-        month[6] = "Jul";
-        month[7] = "Ago";
-        month[8] = "Set";
-        month[9] = "Out";
-        month[10] = "Nov";
-        month[11] = "Dez";
-        var d = new Date();
-        var n = month[d.getMonth()];
-        document.getElementById("mes1").innerHTML = n;
-      }
-      function myMonth2() {
-        var month = new Array();
-        month[0] = "Jan";
-        month[1] = "Fev";
-        month[2] = "Mar";
-        month[3] = "Abr";
-        month[4] = "Mai";
-        month[5] = "Jun";
-        month[6] = "Jul";
-        month[7] = "Ago";
-        month[8] = "Set";
-        month[9] = "Out";
-        month[10] = "Nov";
-        month[11] = "Dez";
-        var d = new Date();
-        var n = month[d.getMonth()];
-        document.getElementById("mes2").innerHTML = n;
-      }
-
-      function myFunction1() {
+      function titulo() {
         var e = document.getElementById("entrada1").value;
         document.getElementById("titulo1").innerHTML = e;
         document.getElementById("titulo2").innerHTML = e;
       }
-      function myFunction2() {
+      function descripcion() {
         var f = document.getElementById("entrada2").value;
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;
