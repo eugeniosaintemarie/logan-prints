@@ -28,17 +28,22 @@
     <p id="dia2"></p>
     <p id="mes2"></p>
     <p id="ano2"></p>
-
-    <div id="selector">
-      320x50:
-      <input type="file" accept="image/*" onchange="loadFile(event)" />
-    </div>
-
+    <p id="carrier1"></p>
+    <p id="carrier2"></p>
     <img src="screenshot1.jpg" width="320px" />
     <img src="screenshot2.jpg" width="320px" />
     <img id="output1" />
     <img id="output2" />
-
+    <div id="selector">
+      <input type="text" id="entrada00" value="Operador" /><button
+        onclick="carrier()"
+      >
+        ACTUALIZAR
+      </button>
+      <br /><br />
+      320x50:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+    </div>
     <style>
       #fecha1 {
         color: #f8f8f8;
@@ -106,6 +111,22 @@
         left: 510px;
         top: 44.25px;
       }
+      #carrier1 {
+        color: #f8f8f8;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 215px;
+        top: 124px;
+      }
+      #carrier2 {
+        color: black;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 345px;
+        top: 3px;
+      }
       #output1 {
         position: absolute;
         left: 8px;
@@ -130,7 +151,6 @@
         margin-left: -50px;
       }
     </style>
-
     <script type="text/javascript">
       window.onload = function() {
         DisplayCurrentTime();
@@ -149,7 +169,6 @@
         fecha1.innerHTML = time;
         fecha2.innerHTML = time;
       }
-
       var a = new Date();
       document.getElementById("dia1").innerHTML = a.getDate() + "/";
       var b = new Date();
@@ -162,7 +181,11 @@
       document.getElementById("mes2").innerHTML = b.getMonth() + 1 + "/";
       var c = new Date();
       document.getElementById("ano2").innerHTML = c.getFullYear();
-
+      function carrier() {
+        var g = document.getElementById("entrada00").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
+      }
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
         var output2 = document.getElementById("output2");

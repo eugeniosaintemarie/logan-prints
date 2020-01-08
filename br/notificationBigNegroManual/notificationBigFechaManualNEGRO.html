@@ -28,12 +28,10 @@
     </div>
     <span id="fecha1"></span>
     <span id="fecha2"></span>
-
     <img src="screenshot1.jpg" width="290px" />
     <img src="screenshot2.jpg" width="290px" />
     <img class="fondo1" src="fondo.jpg" />
     <img class="fondo2" src="fondo.jpg" />
-
     <img id="output1" />
     <p class="titulo1" id="titulo1"></p>
     <p class="descripcion1" id="descripcion1"></p>
@@ -42,7 +40,6 @@
     <p class="titulo2" id="titulo2"></p>
     <p class="descripcion2" id="descripcion2"></p>
     <img id="output22" />
-
     <div id="selector">
       <input type="text" id="entradaHora" value="Hora" />
       <button onclick="hora()">ACTUALIZAR</button>
@@ -91,7 +88,6 @@
         </div>
       </div>
     </div>
-
     <style>
       #hora1 {
         color: #f8f8f8;
@@ -211,7 +207,6 @@
         margin-left: -50px;
       }
     </style>
-
     <script type="text/javascript">
       function hora() {
         var x = document.getElementById("entradaHora").value;
@@ -233,7 +228,6 @@
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;
       }
-
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
         var output11 = document.getElementById("output11");

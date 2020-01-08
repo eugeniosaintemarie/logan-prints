@@ -18,15 +18,11 @@
       <p id="mes"></p>
       <p id="ano"></p>
     </div>
-
     <br /><br />
-
     <img id="output" width="320px" />
-
     <div id="selector">
       320x480: <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
-
     <style>
       #fechaSuperior {
         height: 50px;
@@ -89,7 +85,6 @@
         margin-left: -50px;
       }
     </style>
-
     <script>
       window.onload = function() {
         DisplayCurrentTime();
@@ -112,7 +107,6 @@
       document.getElementById("mes").innerHTML = b.getMonth() + 1 + "/";
       var c = new Date();
       document.getElementById("ano").innerHTML = c.getFullYear();
-
       var loadFile = function(event) {
         var output = document.getElementById("output");
         output.src = URL.createObjectURL(event.target.files[0]);

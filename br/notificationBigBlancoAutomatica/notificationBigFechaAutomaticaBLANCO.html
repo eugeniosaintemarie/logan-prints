@@ -28,12 +28,10 @@
     <p id="dia02"></p>
     <p id="dia2"></p>
     <p id="mes2"></p>
-
     <img src="screenshot1.jpg" width="290px" />
     <img src="screenshot2.jpg" width="290px" />
     <img class="fondo1" src="fondo.jpg" />
     <img class="fondo2" src="fondo.jpg" />
-
     <img id="output1" />
     <p class="titulo1" id="titulo1"></p>
     <p class="descripcion1" id="descripcion1"></p>
@@ -42,7 +40,6 @@
     <p class="titulo2" id="titulo2"></p>
     <p class="descripcion2" id="descripcion2"></p>
     <img id="output22" />
-
     <div id="selector">
       <input type="text" id="entrada1" value="Titulo" />
       <button onclick="myFunction1()">ACTUALIZAR</button>
@@ -55,7 +52,6 @@
       400x250:
       <input type="file" accept="image/*" onchange="loadFile2(event)" />
     </div>
-
     <style>
       #fecha1 {
         color: #f8f8f8;
@@ -207,7 +203,6 @@
         margin-left: -50px;
       }
     </style>
-
     <script type="text/javascript">
       window.onload = function() {
         DisplayCurrentTime();
@@ -230,7 +225,6 @@
         fecha1.innerHTML = time;
         fecha2.innerHTML = time;
       }
-
       function myDay1() {
         var a = new Date();
         var days = new Array(7);
@@ -257,12 +251,10 @@
         var rr = days[aa.getDay()] + ",";
         document.getElementById("dia02").innerHTML = rr;
       }
-
       var a = new Date();
       document.getElementById("dia1").innerHTML = a.getDate() + " de ";
       var a = new Date();
       document.getElementById("dia2").innerHTML = a.getDate() + " de ";
-
       function myMonth1() {
         var month = new Array();
         month[0] = "Jan";
@@ -299,7 +291,6 @@
         var n = month[d.getMonth()];
         document.getElementById("mes2").innerHTML = n;
       }
-
       function myFunction1() {
         var e = document.getElementById("entrada1").value;
         document.getElementById("titulo1").innerHTML = e;
@@ -310,7 +301,6 @@
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;
       }
-
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
         var output11 = document.getElementById("output11");

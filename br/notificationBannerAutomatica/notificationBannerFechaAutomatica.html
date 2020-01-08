@@ -28,17 +28,14 @@
     <p id="dia02"></p>
     <p id="dia2"></p>
     <p id="mes2"></p>
-
-    <div id="selector">
-      320x50:
-      <input type="file" accept="image/*" onchange="loadFile(event)" />
-    </div>
-
     <img src="screenshot1.jpg" width="290px" />
     <img src="screenshot2.jpg" width="290px" />
     <img id="output1" />
     <img id="output2" />
-
+    <div id="selector">
+      320x50:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+    </div>
     <style>
       #fecha1 {
         color: #f8f8f8;
@@ -132,7 +129,6 @@
         margin-left: -50px;
       }
     </style>
-
     <script type="text/javascript">
       window.onload = function() {
         DisplayCurrentTime();
@@ -155,7 +151,6 @@
         fecha1.innerHTML = time;
         fecha2.innerHTML = time;
       }
-
       function myDay1() {
         var a = new Date();
         var days = new Array(7);
@@ -182,12 +177,10 @@
         var rr = days[aa.getDay()] + ",";
         document.getElementById("dia02").innerHTML = rr;
       }
-
       var a = new Date();
       document.getElementById("dia1").innerHTML = a.getDate() + " de ";
       var a = new Date();
       document.getElementById("dia2").innerHTML = a.getDate() + " de ";
-
       function myMonth1() {
         var month = new Array();
         month[0] = "Jan";
@@ -224,7 +217,6 @@
         var n = month[d.getMonth()];
         document.getElementById("mes2").innerHTML = n;
       }
-
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
         var output2 = document.getElementById("output2");
