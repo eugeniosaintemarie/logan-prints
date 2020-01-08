@@ -1,92 +1,83 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>standard auto</title>
-    <script
-      type="text/javascript"
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
-    ></script>
+    <title>richMedia</title>
   </head>
   <body>
-    <div class="container">
-      <p id="fecha">
-        <span id="timer-days"></span>
-        <span id="timer-hours"></span>
-        <span id="timer-mins"></span>
-      </p>
-    </div>
-    <span id="fecha"></span>
-    <p id="dia"></p>
-    <p id="mes"></p>
-    <p id="ano"></p>
-    <img class="barra" src="barra.jpg" width="300" height="20" />
-
-    <div style="overflow: hidden; width: 300px; height: 480px;">
-      <iframe
-        id="iframe"
-        width="317"
-        height="477"
-        frameborder="0"
-        style="overflow:hidden;"
-        src="https://www.clarin.com/mundo/bougainville-remota-isla-pacifico-buscar-convertirse-pais-joven-mundo_0_uV2oPFUE.html"
-      ></iframe>
+    <div id="fechaSuperior">
+      <div class="container">
+        <p id="fecha">
+          <span id="timer-days"></span>
+          <span id="timer-hours"></span>
+          <span id="timer-mins"></span>
+          <span id="timer-secs"></span>
+        </p>
+      </div>
+      <span id="fecha"></span>
+      <p id="dia"></p>
+      <p id="mes"></p>
+      <p id="ano"></p>
     </div>
 
-    <img id="output" />
+    <br /><br />
+
+    <img id="output" width="320px" />
 
     <div id="selector">
-      320x50: <input type="file" accept="image/*" onchange="loadFile(event)" />
-      <br /><br />
-      <input type="text" id="id" />
-      <input type="button" value="Cambiar sitio" onClick="newSite()" />
+      320x480: <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
 
     <style>
+      #fechaSuperior {
+        height: 50px;
+        background-color: grey;
+        background-image: linear-gradient(grey, white);
+        margin-bottom: -45px;
+        width: 23.7%;
+      }
       #fecha {
         color: black;
-        font-size: 13px;
-        font-weight: bold;
+        font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
         position: absolute;
-        left: 75px;
-        top: -4px;
+        left: 10px;
+        top: 0.25px;
       }
       #dia {
         color: black;
-        font-size: 13px;
-        font-weight: bold;
+        font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
         position: absolute;
-        left: 155px; /*mesDoble 140px;*/
-        top: -4px;
+        left: 245px; /*mesDoble 230px*/
+        top: 0.25px;
       }
       #mes {
         color: black;
-        font-size: 13px;
-        font-weight: bold;
+        font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
         position: absolute;
-        left: 168px; /*mesDoble 160px;*/
-        top: -4px;
+        left: 265px; /*mesDoble 258px*/
+        top: 0.25px;
       }
       #ano {
         color: black;
-        font-size: 13px;
-        font-weight: bold;
+        font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
         position: absolute;
-        left: 181px;
-        top: -4px;
+        left: 281px;
+        top: 0.25px;
       }
       #output {
         position: absolute;
-        bottom: 127px;
-        left: 10px;
-        width: 296px;
+        left: 8px;
       }
       #selector {
         position: absolute;
-        top: 50%;
+        top: 10%;
         left: 35%;
         width: 28%;
         background-color: #0078d7;
@@ -98,23 +89,23 @@
         margin-left: -50px;
       }
     </style>
-    <script type="text/javascript">
+
+    <script>
       window.onload = function() {
         DisplayCurrentTime();
       };
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
+          date.getHours() > 12 ? date.getHours() - 12 + 9 : date.getHours();
         var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
-        hours = hours < 10 ? "0" + hours : hours;
+        hours = hours < 10 ? "" + hours : hours;
         var minutes =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         time = hours + ":" + minutes + " " + am_pm;
         var fecha = document.getElementById("fecha");
         fecha.innerHTML = time;
       }
-
       var a = new Date();
       document.getElementById("dia").innerHTML = a.getDate() + "/";
       var b = new Date();
@@ -126,13 +117,6 @@
         var output = document.getElementById("output");
         output.src = URL.createObjectURL(event.target.files[0]);
       };
-
-      function newSite() {
-        var site = $("#id").val();
-        var iframe = document.getElementById("iframe");
-        iframe.src = site;
-        iframe.src = iframe.src;
-      }
     </script>
   </body>
 </html>
