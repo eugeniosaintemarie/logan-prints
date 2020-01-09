@@ -103,9 +103,9 @@
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-          date.getHours() > 12 ? date.getHours() - 12 + 9 : date.getHours();
+        date.setHours( date.getHours() - 3) > 12 ? date.getHours() : date.getHours();
         var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
-        hours = hours < 10 ? "0" + hours : hours;
+        hours = hours < 10 ? "" + hours : hours;
         var minutes =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         time = hours + ":" + minutes + " " + am_pm;
