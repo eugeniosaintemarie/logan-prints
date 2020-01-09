@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>noti BIG auto NEGRO</title>
+    <title>noti BIG auto BLANCO</title>
   </head>
   <body>
     <div class="container">
@@ -46,11 +46,8 @@
       <input type="text" id="entrada2" value="Descripcion" />
       <button onclick="myFunction2()">ACTUALIZAR</button>
       <br /><br />
-      96x96:
+      72x72:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
-      <br /><br />
-      400x250:
-      <input type="file" accept="image/*" onchange="loadFile2(event)" />
     </div>
     <style>
       #fecha1 {
@@ -121,67 +118,69 @@
       }
       .fondo1 {
         position: absolute;
-        left: 104px;
+        left: 77px;
         top: 153px;
-        width: 191px;
-        height: 96px;
+        width: 218px;
+        height: 66px;
       }
       .titulo1 {
-        color: white;
-        font-size: 15px;
-        font-weight: 600;
+        color: black;
+        font-size: 14px;
+        font-weight: bold;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 110px;
-        top: 162px;
+        left: 85px;
+        top: 153px;
       }
       .descripcion1 {
-        color: white;
-        font-size: 12px;
+        color: black;
+        font-size: 14px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 110px;
-        top: 190px;
+        left: 85px;
+        top: 171px;
       }
       #output1 {
         position: absolute;
         left: 11px;
         top: 153px;
+        width: 66px;
       }
       #output2 {
         position: absolute;
         left: 11px;
-        top: 251px;
+        top: 222px;
         width: 284px;
       }
       .fondo2 {
         position: absolute;
-        left: 401px;
+        left: 398px;
         top: 200px;
-        width: 191px;
+        width: 194px;
         height: 96px;
       }
       .titulo2 {
-        color: white;
+        color: black;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 408px;
+        left: 403px;
         top: 211px;
       }
       .descripcion2 {
-        color: white;
+        color: black;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 408px;
+        left: 403px;
         top: 235px;
       }
       #output11 {
         position: absolute;
         left: 302px;
         top: 200px;
+        width: 96px;
       }
       #output22 {
         position: absolute;
@@ -301,7 +300,6 @@
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;
       }
-
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
         var output11 = document.getElementById("output11");
