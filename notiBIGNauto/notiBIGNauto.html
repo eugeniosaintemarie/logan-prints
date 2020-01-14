@@ -1,0 +1,235 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <title>noti BIG auto NEGRO</title>
+    <script
+      type="text/javascript"
+      ;
+      src="https://momentjs.com/downloads/moment.js"
+      ;
+    ></script>
+  </head>
+  <body>
+    <p id="hora1"></p>
+    <p id="hora2"></p>
+    <p id="fecha1"></p>
+    <p id="fecha2"></p>
+    <p id="carrier1"></p>
+    <p id="carrier2"></p>
+    <img src="screenshot1.jpg" width="320px" />
+    <img src="screenshot2.jpg" width="320px" />
+    <img class="fondo1" src="fondo.jpg" />
+    <img class="fondo2" src="fondo.jpg" />
+    <img id="output1" />
+    <p class="titulo1" id="titulo1"></p>
+    <p class="descripcion1" id="descripcion1"></p>
+    <img id="output2" />
+    <img id="output11" />
+    <p class="titulo2" id="titulo2"></p>
+    <p class="descripcion2" id="descripcion2"></p>
+    <img id="output22" />
+    <div id="selector">
+      <input type="text" id="entradaOperador" value="Operador" /><button
+        onclick="carrier()"
+      >
+        ACTUALIZAR
+      </button>
+      <br /><br />
+      <input type="text" id="entradaTitulo" value="Titulo" />
+      <button onclick="titulo()">ACTUALIZAR</button>
+      <input type="text" id="entradaDescripcion" value="Descripcion" />
+      <button onclick="descripcion()">ACTUALIZAR</button>
+      <br /><br />
+      96x96:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+      <br /><br />
+      400x250:
+      <input type="file" accept="image/*" onchange="loadFile2(event)" />
+    </div>
+    <style>
+      #hora1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 25px;
+        top: 0.25px;
+      }
+      #hora2 {
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 350px;
+        top: 44.25px;
+      }
+      #fecha1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 160px;
+        top: 0.25px;
+      }
+      #fecha2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 460px;
+        top: 44.25px;
+      }
+      #carrier1 {
+        color: #f8f8f8;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 215px;
+        top: 124px;
+      }
+      #carrier2 {
+        color: black;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 345px;
+        top: 3px;
+      }
+      .fondo1 {
+        position: absolute;
+        left: 104px;
+        top: 164px;
+        width: 223.5px;
+        height: 96px;
+      }
+      .fondo2 {
+        position: absolute;
+        left: 429px;
+        top: 166px;
+        width: 223.5px;
+        height: 96px;
+      }
+      .titulo1 {
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 108px;
+        top: 178px;
+      }
+      .descripcion1 {
+        color: white;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 108px;
+        top: 198px;
+      }
+      .titulo2 {
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 432px;
+        top: 180px;
+      }
+      .descripcion2 {
+        color: white;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 432px;
+        top: 200px;
+      }
+      #output1 {
+        position: absolute;
+        left: 8px;
+        top: 164px;
+      }
+      #output2 {
+        position: absolute;
+        left: 8px;
+        top: 260px;
+        width: 320px;
+      }
+      #output11 {
+        position: absolute;
+        left: 332px;
+        top: 166px;
+      }
+      #output22 {
+        position: absolute;
+        left: 332px;
+        top: 262px;
+        width: 320px;
+      }
+      #selector {
+        position: absolute;
+        top: 10%;
+        left: 53%;
+        width: 41.5%;
+        background-color: #0078d7;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function() {
+        horas();
+      };
+      function horas() {
+        var date = new Date();
+        var hours =
+          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
+        hours = hours < 10 ? "0" + hours : hours;
+        var minutes =
+          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        time = hours + ":" + minutes + " " + am_pm;
+        var hora1 = document.getElementById("hora1");
+        var hora2 = document.getElementById("hora2");
+        hora1.innerHTML = time;
+        hora2.innerHTML = time;
+      }
+      var fecha1 = moment().format("DD/MM/YYYY");
+      document.getElementById("fecha1").innerHTML = fecha1;
+      var fecha2 = moment().format("DD/MM/YYYY");
+      document.getElementById("fecha2").innerHTML = fecha2;
+      function titulo() {
+        var e = document.getElementById("entradaTitulo").value;
+        document.getElementById("titulo1").innerHTML = e;
+        document.getElementById("titulo2").innerHTML = e;
+      }
+      function descripcion() {
+        var f = document.getElementById("entradaDescripcion").value;
+        document.getElementById("descripcion1").innerHTML = f;
+        document.getElementById("descripcion2").innerHTML = f;
+      }
+      function carrier() {
+        var g = document.getElementById("entradaOperador").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
+      }
+      var loadFile = function(event) {
+        var output1 = document.getElementById("output1");
+        var output11 = document.getElementById("output11");
+        output1.src = URL.createObjectURL(event.target.files[0]);
+        output11.src = URL.createObjectURL(event.target.files[0]);
+      };
+      var loadFile2 = function(event) {
+        var output2 = document.getElementById("output2");
+        var output22 = document.getElementById("output22");
+        output2.src = URL.createObjectURL(event.target.files[0]);
+        output22.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>

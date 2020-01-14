@@ -1,0 +1,143 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <title>noti banner auto</title>
+    <script
+      type="text/javascript"
+      ;
+      src="https://momentjs.com/downloads/moment.js"
+      ;
+    ></script>
+  </head>
+  <body>
+    <p id="hora1"></p>
+    <p id="hora2"></p>
+    <p id="fecha1"></p>
+    <p id="fecha2"></p>
+    <p id="carrier1"></p>
+    <p id="carrier2"></p>
+    <img src="screenshot1.jpg" width="320px" />
+    <img src="screenshot2.jpg" width="320px" />
+    <img id="output1" />
+    <img id="output2" />
+    <div id="selector">
+      <input type="text" id="entradaOperador" value="Operador" /><button
+        onclick="carrier()"
+      >
+        ACTUALIZAR
+      </button>
+      <br /><br />
+      320x50:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+    </div>
+    <style>
+      #hora1 {
+        color: #f8f8f8;
+        font-weight: 600;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 25px;
+        top: 0.25px;
+      }
+      #hora2 {
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 350px;
+        top: 44.25px;
+      }
+      #fecha1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 160px;
+        top: 0.25px;
+      }
+      #fecha2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 460px;
+        top: 44.25px;
+      }
+      #carrier1 {
+        color: #f8f8f8;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 215px;
+        top: 124px;
+      }
+      #carrier2 {
+        color: black;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 345px;
+        top: 3px;
+      }
+      #output1 {
+        position: absolute;
+        left: 8px;
+        top: 164px;
+      }
+      #output2 {
+        position: absolute;
+        left: 332px;
+        top: 166px;
+      }
+      #selector {
+        position: absolute;
+        top: 10%;
+        left: 55%;
+        width: 32%;
+        background-color: #0078d7;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function() {
+        horas();
+      };
+      function horas() {
+        var date = new Date();
+        var hours =
+          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
+        hours = hours < 10 ? "0" + hours : hours;
+        var minutes =
+          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        time = hours + ":" + minutes + " " + am_pm;
+        var hora1 = document.getElementById("hora1");
+        var hora2 = document.getElementById("hora2");
+        hora1.innerHTML = time;
+        hora2.innerHTML = time;
+      }
+      var fecha1 = moment().format("DD/MM/YYYY");
+      document.getElementById("fecha1").innerHTML = fecha1;
+      var fecha2 = moment().format("DD/MM/YYYY");
+      document.getElementById("fecha2").innerHTML = fecha2;
+      function carrier() {
+        var g = document.getElementById("entradaOperador").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
+      }
+      var loadFile = function(event) {
+        var output1 = document.getElementById("output1");
+        var output2 = document.getElementById("output2");
+        output1.src = URL.createObjectURL(event.target.files[0]);
+        output2.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>

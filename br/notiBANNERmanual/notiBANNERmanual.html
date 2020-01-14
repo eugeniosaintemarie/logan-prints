@@ -1,0 +1,157 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>noti banner manual</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px;
+      }
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="hora1"></p>
+    <p id="hora2"></p>
+    <span id="fecha1"></span>
+    <span id="fecha2"></span>
+    <img src="screenshot1.jpg" width="290px" />
+    <img src="screenshot2.jpg" width="290px" />
+    <img id="output1" />
+    <img id="output2" />
+    <div id="selector">
+      <input type="text" id="entradaHora" value="Hora" /><button
+        onclick="hora()"
+      >
+        ACTUALIZAR
+      </button>
+      <input type="text" id="entradaFecha" value="Fecha" /><button
+        onclick="fecha()"
+      >
+        ACTUALIZAR
+      </button>
+      <br /><br /><br /><br />
+      320x50:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+      <br /><br />
+      <div class="row">
+        <div class="column">
+          <p>
+            Lunes: Segunda-feira<br />
+            Martes: Terça-Feira<br />
+            Miercoles: Quarta-Feira<br />
+            Jueves: Quinta-Feira<br />
+            Viernes: Sexta-Feira<br />
+            Sabado: Sábado<br />
+            Domingo: Domingo<br />
+          </p>
+        </div>
+        <div class="column">
+          <p>
+            Enero: Janeiro<br />
+            Febrero: Fevereiro<br />
+            Marzo: Março<br />
+            Abril: Abril<br />
+            Mayo: Maio<br />
+            Junio: Junho<br />
+            Julio: Julho<br />
+            Agosto: Agosto<br />
+            Septiembre: Setembro<br />
+            Octubre: Outubro<br />
+            Noviembre: Novembro<br />
+            Diciembre: Dezembro<br />
+          </p>
+        </div>
+      </div>
+    </div>
+    <style>
+      #hora1 {
+        color: #f8f8f8;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 20px;
+        top: 2px;
+      }
+      #fecha1 {
+        color: #f8f8f8;
+        font-size: 13px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 20px;
+        top: 51px;
+      }
+      #hora2 {
+        color: black;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 315px;
+        top: 90px;
+      }
+      #fecha2 {
+        color: black;
+        font-size: 18px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 420px;
+        top: 108px;
+      }
+      #output1 {
+        position: absolute;
+        left: 11px;
+        top: 153px;
+        width: 284px;
+      }
+      #output2 {
+        position: absolute;
+        left: 302px;
+        top: 200px;
+        width: 290px;
+      }
+      #selector {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        width: 50%;
+        background-color: #0078d7;
+        padding-top: 15px;
+        padding-bottom: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <script type="text/javascript">
+      function hora() {
+        var x = document.getElementById("entradaHora").value;
+        document.getElementById("hora1").innerHTML = x;
+        document.getElementById("hora2").innerHTML = x;
+      }
+      function fecha() {
+        var x = document.getElementById("entradaFecha").value;
+        document.getElementById("fecha1").innerHTML = x;
+        document.getElementById("fecha2").innerHTML = x;
+      }
+      var loadFile = function(event) {
+        var output1 = document.getElementById("output1");
+        var output2 = document.getElementById("output2");
+        output1.src = URL.createObjectURL(event.target.files[0]);
+        output2.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>
