@@ -2,21 +2,25 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>noti 72 auto BLANCO</title>
+    <title>noti banner auto</title>
   </head>
   <body>
-    <p id="fecha1">
-      <span id="timer-days"></span>
-      <span id="timer-hours"></span>
-      <span id="timer-mins"></span>
-      <span id="timer-secs"></span>
-    </p>
-    <p id="fecha2">
-      <span id="timer-days2"></span>
-      <span id="timer-hours2"></span>
-      <span id="timer-mins2"></span>
-      <span id="timer-secs2"></span>
-    </p>
+    <div class="container">
+      <p id="fecha1">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+      </p>
+    </div>
+    <div class="container">
+      <p id="fecha2">
+        <span id="timer-days2"></span>
+        <span id="timer-hours2"></span>
+        <span id="timer-mins2"></span>
+        <span id="timer-secs2"></span>
+      </p>
+    </div>
     <span id="fecha1"></span>
     <p id="dia01"></p>
     <p id="dia1"></p>
@@ -27,23 +31,10 @@
     <p id="mes2"></p>
     <img src="screenshot1.jpg" width="290px" />
     <img src="screenshot2.jpg" width="290px" />
-    <img class="fondo1" src="fondo.jpg" />
-    <img class="fondo2" src="fondo.jpg" />
     <img id="output1" />
-    <p class="titulo1" id="titulo1"></p>
-    <p class="descripcion1" id="descripcion1"></p>
     <img id="output2" />
-    <img id="output11" />
-    <p class="titulo2" id="titulo2"></p>
-    <p class="descripcion2" id="descripcion2"></p>
-    <img id="output22" />
     <div id="selector">
-      <input type="text" id="entradaTitulo" value="Titulo" />
-      <button onclick="titulo()">ACTUALIZAR</button>
-      <input type="text" id="entradaDescripcion" value="Descripcion" />
-      <button onclick="descripcion()">ACTUALIZAR</button>
-      <br /><br />
-      72x72:
+      320x50:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
     <style>
@@ -77,7 +68,7 @@
         font-size: 13px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 86px;
+        left: 83px; /*180px día doble*/
         top: 40px;
       }
       #fecha2 {
@@ -94,7 +85,7 @@
         font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 415px;
+        left: 420px;
         top: 90px;
       }
       #dia2 {
@@ -102,7 +93,7 @@
         font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 450px;
+        left: 458px;
         top: 90px;
       }
       #mes2 {
@@ -110,86 +101,26 @@
         font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 500px;
+        left: 506px; /*180px día doble*/
         top: 90px;
-      }
-      .fondo1 {
-        position: absolute;
-        left: 77px;
-        top: 153px;
-        width: 218px;
-        height: 66px;
-      }
-      .titulo1 {
-        color: black;
-        font-size: 14px;
-        font-weight: bold;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 85px;
-        top: 153px;
-      }
-      .descripcion1 {
-        color: black;
-        font-size: 12px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 85px;
-        top: 177px;
       }
       #output1 {
         position: absolute;
         left: 11px;
         top: 153px;
-        width: 66px;
+        width: 284px;
       }
       #output2 {
         position: absolute;
-        left: 11px;
-        top: 222px;
-        width: 284px;
-      }
-      .fondo2 {
-        position: absolute;
-        left: 398px;
-        top: 200px;
-        width: 194px;
-        height: 96px;
-      }
-      .titulo2 {
-        color: black;
-        font-size: 15px;
-        font-weight: 600;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 403px;
-        top: 211px;
-      }
-      .descripcion2 {
-        color: black;
-        font-size: 12px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 403px;
-        top: 235px;
-      }
-      #output11 {
-        position: absolute;
         left: 302px;
         top: 200px;
-        width: 96px;
-      }
-      #output22 {
-        position: absolute;
-        left: 302px;
-        top: 296px;
         width: 290px;
       }
       #selector {
         position: absolute;
         top: 10%;
-        left: 53%;
-        width: 42%;
+        left: 55%;
+        width: 32%;
         background-color: #0078d7;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -289,27 +220,11 @@
         var n = month[d.getMonth()];
         document.getElementById("mes2").innerHTML = n;
       }
-      function titulo() {
-        var e = document.getElementById("entradaTitulo").value;
-        document.getElementById("titulo1").innerHTML = e;
-        document.getElementById("titulo2").innerHTML = e;
-      }
-      function descripcion() {
-        var f = document.getElementById("entradaDescripcion").value;
-        document.getElementById("descripcion1").innerHTML = f;
-        document.getElementById("descripcion2").innerHTML = f;
-      }
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
-        var output11 = document.getElementById("output11");
-        output1.src = URL.createObjectURL(event.target.files[0]);
-        output11.src = URL.createObjectURL(event.target.files[0]);
-      };
-      var loadFile2 = function(event) {
         var output2 = document.getElementById("output2");
-        var output22 = document.getElementById("output22");
+        output1.src = URL.createObjectURL(event.target.files[0]);
         output2.src = URL.createObjectURL(event.target.files[0]);
-        output22.src = URL.createObjectURL(event.target.files[0]);
       };
     </script>
   </body>

@@ -5,18 +5,22 @@
     <title>noti 72 auto BLANCO</title>
   </head>
   <body>
-    <p id="fecha1">
-      <span id="timer-days"></span>
-      <span id="timer-hours"></span>
-      <span id="timer-mins"></span>
-      <span id="timer-secs"></span>
-    </p>
-    <p id="fecha2">
-      <span id="timer-days2"></span>
-      <span id="timer-hours2"></span>
-      <span id="timer-mins2"></span>
-      <span id="timer-secs2"></span>
-    </p>
+    <div class="container">
+      <p id="fecha1">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+      </p>
+    </div>
+    <div class="container">
+      <p id="fecha2">
+        <span id="timer-days2"></span>
+        <span id="timer-hours2"></span>
+        <span id="timer-mins2"></span>
+        <span id="timer-secs2"></span>
+      </p>
+    </div>
     <span id="fecha1"></span>
     <p id="dia01"></p>
     <p id="dia1"></p>
@@ -38,10 +42,10 @@
     <p class="descripcion2" id="descripcion2"></p>
     <img id="output22" />
     <div id="selector">
-      <input type="text" id="entradaTitulo" value="Titulo" />
-      <button onclick="titulo()">ACTUALIZAR</button>
-      <input type="text" id="entradaDescripcion" value="Descripcion" />
-      <button onclick="descripcion()">ACTUALIZAR</button>
+      <input type="text" id="entrada1" value="Titulo" />
+      <button onclick="myFunction1()">ACTUALIZAR</button>
+      <input type="text" id="entrada2" value="Descripcion" />
+      <button onclick="myFunction2()">ACTUALIZAR</button>
       <br /><br />
       72x72:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
@@ -77,7 +81,7 @@
         font-size: 13px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 86px;
+        left: 83px; /*180px día doble*/
         top: 40px;
       }
       #fecha2 {
@@ -94,7 +98,7 @@
         font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 415px;
+        left: 420px;
         top: 90px;
       }
       #dia2 {
@@ -102,7 +106,7 @@
         font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 450px;
+        left: 458px;
         top: 90px;
       }
       #mes2 {
@@ -110,7 +114,7 @@
         font-size: 18px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 500px;
+        left: 506px; /*180px día doble*/
         top: 90px;
       }
       .fondo1 {

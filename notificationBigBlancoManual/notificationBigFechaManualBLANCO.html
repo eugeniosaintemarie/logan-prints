@@ -1,11 +1,9 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>noti BIG manual NEGRO</title>
+    <title>noti BIG manual BLANCO</title>
   </head>
   <body>
-    <p id="hora1"></p>
-    <p id="hora2"></p>
     <p id="fecha1"></p>
     <p id="fecha2"></p>
     <p id="carrier1"></p>
@@ -23,27 +21,21 @@
     <p class="descripcion2" id="descripcion2"></p>
     <img id="output22" />
     <div id="selector">
-      <input type="text" id="entradaHora" value="Hora" /><button
-        onclick="hora()"
+      <input type="text" id="entrada0" value="Fecha" /><button
+        onclick="myFunction0()"
       >
         ACTUALIZAR
       </button>
-      <input type="text" id="entradaFecha" value="Fecha" /><button
-        onclick="fecha()"
-      >
-        ACTUALIZAR
-      </button>
-      <br /><br />
-      <input type="text" id="entradaOperador" value="Operador" /><button
+      <input type="text" id="entrada00" value="Operador" /><button
         onclick="carrier()"
       >
         ACTUALIZAR
       </button>
       <br /><br />
-      <input type="text" id="entradaTitulo" value="Titulo" />
-      <button onclick="titulo()">ACTUALIZAR</button>
-      <input type="text" id="entradaDescripcion" value="Descripcion" />
-      <button onclick="descripcion()">ACTUALIZAR</button>
+      <input type="text" id="entrada1" value="Titulo" />
+      <button onclick="myFunction1()">ACTUALIZAR</button>
+      <input type="text" id="entrada2" value="Descripcion" />
+      <button onclick="myFunction2()">ACTUALIZAR</button>
       <br /><br />
       96x96:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
@@ -52,38 +44,20 @@
       <input type="file" accept="image/*" onchange="loadFile2(event)" />
     </div>
     <style>
-      #hora1 {
-        color: #f8f8f8;
-        font-weight: 600;
-        font-size: 20px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 25px;
-        top: 0.25px;
-      }
-      #hora2 {
-        color: black;
-        font-size: 20px;
-        font-weight: 600;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 350px;
-        top: 44.25px;
-      }
       #fecha1 {
         color: #f8f8f8;
         font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 160px;
-        top: 0.25px;
+        left: 25px;
+        top: 1px;
       }
       #fecha2 {
         color: black;
         font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 460px;
+        left: 345px;
         top: 44.25px;
       }
       #carrier1 {
@@ -163,7 +137,7 @@
       }
       #output11 {
         position: absolute;
-        left: 333px;
+        left: 332px;
         top: 166px;
       }
       #output22 {
@@ -187,30 +161,25 @@
       }
     </style>
     <script>
-      function hora() {
-        var z = document.getElementById("entradaHora").value;
-        document.getElementById("hora1").innerHTML = z;
-        document.getElementById("hora2").innerHTML = z;
-      }
-      function fecha() {
-        var x = document.getElementById("entradaFecha").value;
+      function myFunction0() {
+        var x = document.getElementById("entrada0").value;
         document.getElementById("fecha1").innerHTML = x;
         document.getElementById("fecha2").innerHTML = x;
       }
-      function titulo() {
-        var e = document.getElementById("entradaTitulo").value;
+      function carrier() {
+        var g = document.getElementById("entrada00").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
+      }
+      function myFunction1() {
+        var e = document.getElementById("entrada1").value;
         document.getElementById("titulo1").innerHTML = e;
         document.getElementById("titulo2").innerHTML = e;
       }
-      function descripcion() {
-        var f = document.getElementById("entradaDescripcion").value;
+      function myFunction2() {
+        var f = document.getElementById("entrada2").value;
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;
-      }
-      function carrier() {
-        var g = document.getElementById("entradaOperador").value;
-        document.getElementById("carrier1").innerHTML = g;
-        document.getElementById("carrier2").innerHTML = g;
       }
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");

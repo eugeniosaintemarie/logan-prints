@@ -1,0 +1,113 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <title>sticker manual</title>
+    <script
+      type="text/javascript"
+      ;
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+      ;
+    ></script>
+  </head>
+  <body>
+    <p id="fecha"></p>
+    <div id="descarga"><img src="screenshot.jpg" width="320px" /></div>
+    <p id="url"></p>
+    <div id="ventana">
+      <iframe
+        id="iframe"
+        width="338"
+        height="481"
+        frameborder="0"
+        style="overflow:hidden;"
+        src="https://www.clarin.com/"
+      ></iframe>
+    </div>
+    <img id="output" />
+    <img class="x" src="x.png" />
+    <div id="selector">
+      <input type="text" id="entrada" value="Hora" />
+      <br /><br />
+      <input type="text" id="id" placeholder="incluido https://" />
+      <input type="button" value="Cambiar sitio" onClick="newSite()" />
+      <br /><br />
+      300x250: <input type="file" accept="image/*" onchange="loadFile(event)" />
+    </div>
+    <style>
+      #fecha {
+        color: #6b6b6b;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 10px;
+        top: -4px;
+      }
+      #url {
+        color: #28292d;
+        background-color: #f1f2f6;
+        font-size: 15px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 88px;
+        top: 28px;
+        overflow: hidden;
+        width: 10%;
+        height: 3.5%;
+      }
+      #ventana {
+        overflow: hidden;
+        width: 321px;
+        height: 465px;
+        top: 82px;
+        position: absolute;
+      }
+      .x {
+        position: absolute;
+        align-content: right;
+        left: 237px;
+        bottom: 229px;
+      }
+      #output {
+        position: absolute;
+        bottom: 88px;
+        left: 62px;
+        width: 15%;
+      }
+      #selector {
+        position: absolute;
+        top: 10%;
+        left: 35%;
+        width: 28%;
+        background-color: #0078d7;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <script type="text/javascript">
+      function myFunction() {
+        var x = document.getElementById("entrada").value;
+        document.getElementById("fecha").innerHTML = x;
+      }
+      $("#entrada").keyup(function() {
+        $("#fecha").text($(this).val());
+      });
+      function newSite() {
+        var site = $("#id").val();
+        var iframe = document.getElementById("iframe");
+        iframe.src = site;
+        iframe.src = iframe.src;
+        var x = document.getElementById("id").value;
+        document.getElementById("url").innerHTML = x;
+      }
+      var loadFile = function(event) {
+        var output = document.getElementById("output");
+        output.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>

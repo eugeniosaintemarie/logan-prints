@@ -1,32 +1,37 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>noti 72 auto BLANCO</title>
+    <title>noti BIG auto BLANCO</title>
   </head>
   <body>
-    <p id="fecha1">
-      <span id="timer-days"></span>
-      <span id="timer-hours"></span>
-      <span id="timer-mins"></span>
-      <span id="timer-secs"></span>
-    </p>
-    <p id="fecha2">
-      <span id="timer-days2"></span>
-      <span id="timer-hours2"></span>
-      <span id="timer-mins2"></span>
-      <span id="timer-secs2"></span>
-    </p>
+    <div class="container">
+      <p id="fecha1">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+      </p>
+    </div>
+    <div class="container">
+      <p id="fecha2">
+        <span id="timer-days2"></span>
+        <span id="timer-hours2"></span>
+        <span id="timer-mins2"></span>
+        <span id="timer-secs2"></span>
+      </p>
+    </div>
     <span id="fecha1"></span>
-    <p id="dia01"></p>
     <p id="dia1"></p>
     <p id="mes1"></p>
+    <p id="ano1"></p>
     <span id="fecha2"></span>
-    <p id="dia02"></p>
     <p id="dia2"></p>
     <p id="mes2"></p>
-    <img src="screenshot1.jpg" width="290px" />
-    <img src="screenshot2.jpg" width="290px" />
+    <p id="ano2"></p>
+    <p id="carrier1"></p>
+    <p id="carrier2"></p>
+    <img src="screenshot1.jpg" width="320px" />
+    <img src="screenshot2.jpg" width="320px" />
     <img class="fondo1" src="fondo.jpg" />
     <img class="fondo2" src="fondo.jpg" />
     <img id="output1" />
@@ -38,123 +43,136 @@
     <p class="descripcion2" id="descripcion2"></p>
     <img id="output22" />
     <div id="selector">
-      <input type="text" id="entradaTitulo" value="Titulo" />
-      <button onclick="titulo()">ACTUALIZAR</button>
-      <input type="text" id="entradaDescripcion" value="Descripcion" />
-      <button onclick="descripcion()">ACTUALIZAR</button>
+      <input type="text" id="entrada00" value="Operador" /><button
+        onclick="carrier()"
+      >
+        ACTUALIZAR
+      </button>
       <br /><br />
-      72x72:
+      <input type="text" id="entrada1" value="Titulo" />
+      <button onclick="myFunction1()">ACTUALIZAR</button>
+      <input type="text" id="entrada2" value="Descripcion" />
+      <button onclick="myFunction2()">ACTUALIZAR</button>
+      <br /><br />
+      96x96:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
+      <br /><br />
+      400x250:
+      <input type="file" accept="image/*" onchange="loadFile2(event)" />
     </div>
     <style>
       #fecha1 {
         color: #f8f8f8;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 25px;
+        top: 0.25px;
+      }
+      #fecha2 {
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 350px;
+        top: 44.25px;
+      }
+      #dia1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 160px; /*150px mes doble*/
+        top: 0.25px;
+      }
+      #mes1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 190px; /*180px mes doble*/
+        top: 0.25px;
+      }
+      #ano1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 210px;
+        top: 0.25px;
+      }
+      #dia2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 460px; /*450px mes doble*/
+        top: 44.25px;
+      }
+      #mes2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 490px; /*480px mes doble*/
+        top: 44.25px;
+      }
+      #ano2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 510px;
+        top: 44.25px;
+      }
+      #carrier1 {
+        color: #f8f8f8;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 215px;
+        top: 124px;
+      }
+      #carrier2 {
+        color: black;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 345px;
+        top: 3px;
+      }
+      .fondo1 {
+        position: absolute;
+        left: 104px;
+        top: 164px;
+        width: 223.5px;
+        height: 96px;
+      }
+      .fondo2 {
+        position: absolute;
+        left: 429px;
+        top: 166px;
+        width: 223.5px;
+        height: 96px;
+      }
+      .titulo1 {
+        color: black;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 20px;
-        top: 2px;
-      }
-      #dia01 {
-        color: #f8f8f8;
-        font-size: 13px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 20px;
-        top: 40px;
-      }
-      #dia1 {
-        color: #f8f8f8;
-        font-size: 13px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 49px;
-        top: 40px;
-      }
-      #mes1 {
-        color: #f8f8f8;
-        font-size: 13px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 86px;
-        top: 40px;
-      }
-      #fecha2 {
-        color: black;
-        font-size: 18px;
-        font-weight: 600;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 315px;
-        top: 90px;
-      }
-      #dia02 {
-        color: black;
-        font-size: 18px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 415px;
-        top: 90px;
-      }
-      #dia2 {
-        color: black;
-        font-size: 18px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 450px;
-        top: 90px;
-      }
-      #mes2 {
-        color: black;
-        font-size: 18px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 500px;
-        top: 90px;
-      }
-      .fondo1 {
-        position: absolute;
-        left: 77px;
-        top: 153px;
-        width: 218px;
-        height: 66px;
-      }
-      .titulo1 {
-        color: black;
-        font-size: 14px;
-        font-weight: bold;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 85px;
-        top: 153px;
+        left: 108px;
+        top: 178px;
       }
       .descripcion1 {
         color: black;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 85px;
-        top: 177px;
-      }
-      #output1 {
-        position: absolute;
-        left: 11px;
-        top: 153px;
-        width: 66px;
-      }
-      #output2 {
-        position: absolute;
-        left: 11px;
-        top: 222px;
-        width: 284px;
-      }
-      .fondo2 {
-        position: absolute;
-        left: 398px;
-        top: 200px;
-        width: 194px;
-        height: 96px;
+        left: 108px;
+        top: 198px;
       }
       .titulo2 {
         color: black;
@@ -162,34 +180,44 @@
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 403px;
-        top: 211px;
+        left: 432px;
+        top: 180px;
       }
       .descripcion2 {
         color: black;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 403px;
-        top: 235px;
+        left: 432px;
+        top: 200px;
+      }
+      #output1 {
+        position: absolute;
+        left: 8px;
+        top: 164px;
+      }
+      #output2 {
+        position: absolute;
+        left: 8px;
+        top: 260px;
+        width: 320px;
       }
       #output11 {
         position: absolute;
-        left: 302px;
-        top: 200px;
-        width: 96px;
+        left: 332px;
+        top: 166px;
       }
       #output22 {
         position: absolute;
-        left: 302px;
-        top: 296px;
-        width: 290px;
+        left: 332px;
+        top: 262px;
+        width: 320px;
       }
       #selector {
         position: absolute;
         top: 10%;
         left: 53%;
-        width: 42%;
+        width: 41.5%;
         background-color: #0078d7;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -201,13 +229,9 @@
     </style>
     <script type="text/javascript">
       window.onload = function() {
-        hora();
-        dia1();
-        dia2();
-        mes1();
-        mes2();
+        DisplayCurrentTime();
       };
-      function hora() {
+      function DisplayCurrentTime() {
         var date = new Date();
         var hours =
           date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
@@ -221,81 +245,30 @@
         fecha1.innerHTML = time;
         fecha2.innerHTML = time;
       }
-      function dia1() {
-        var a = new Date();
-        var days = new Array(7);
-        days[0] = "Dom";
-        days[1] = "Seg";
-        days[2] = "Ter";
-        days[3] = "Qua";
-        days[4] = "Qui";
-        days[5] = "Sex";
-        days[6] = "Sáb";
-        var r = days[a.getDay()] + ",";
-        document.getElementById("dia01").innerHTML = r;
-      }
-      function dia2() {
-        var aa = new Date();
-        var days = new Array(7);
-        days[0] = "Dom";
-        days[1] = "Seg";
-        days[2] = "Ter";
-        days[3] = "Qua";
-        days[4] = "Qui";
-        days[5] = "Sex";
-        days[6] = "Sáb";
-        var rr = days[aa.getDay()] + ",";
-        document.getElementById("dia02").innerHTML = rr;
-      }
       var a = new Date();
-      document.getElementById("dia1").innerHTML =
-        ("0" + a.getDate()).slice(-2) + " de ";
+      document.getElementById("dia1").innerHTML = a.getDate() + "/";
+      var b = new Date();
+      document.getElementById("mes1").innerHTML = b.getMonth() + 1 + "/";
+      var c = new Date();
+      document.getElementById("ano1").innerHTML = c.getFullYear();
       var a = new Date();
-      document.getElementById("dia2").innerHTML =
-        ("0" + a.getDate()).slice(-2) + " de ";
-      function mes1() {
-        var month = new Array();
-        month[0] = "Jan";
-        month[1] = "Fev";
-        month[2] = "Mar";
-        month[3] = "Abr";
-        month[4] = "Mai";
-        month[5] = "Jun";
-        month[6] = "Jul";
-        month[7] = "Ago";
-        month[8] = "Set";
-        month[9] = "Out";
-        month[10] = "Nov";
-        month[11] = "Dez";
-        var d = new Date();
-        var n = month[d.getMonth()];
-        document.getElementById("mes1").innerHTML = n;
+      document.getElementById("dia2").innerHTML = a.getDate() + "/";
+      var b = new Date();
+      document.getElementById("mes2").innerHTML = b.getMonth() + 1 + "/";
+      var c = new Date();
+      document.getElementById("ano2").innerHTML = c.getFullYear();
+      function carrier() {
+        var g = document.getElementById("entrada00").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
       }
-      function mes2() {
-        var month = new Array();
-        month[0] = "Jan";
-        month[1] = "Fev";
-        month[2] = "Mar";
-        month[3] = "Abr";
-        month[4] = "Mai";
-        month[5] = "Jun";
-        month[6] = "Jul";
-        month[7] = "Ago";
-        month[8] = "Set";
-        month[9] = "Out";
-        month[10] = "Nov";
-        month[11] = "Dez";
-        var d = new Date();
-        var n = month[d.getMonth()];
-        document.getElementById("mes2").innerHTML = n;
-      }
-      function titulo() {
-        var e = document.getElementById("entradaTitulo").value;
+      function myFunction1() {
+        var e = document.getElementById("entrada1").value;
         document.getElementById("titulo1").innerHTML = e;
         document.getElementById("titulo2").innerHTML = e;
       }
-      function descripcion() {
-        var f = document.getElementById("entradaDescripcion").value;
+      function myFunction2() {
+        var f = document.getElementById("entrada2").value;
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;
       }

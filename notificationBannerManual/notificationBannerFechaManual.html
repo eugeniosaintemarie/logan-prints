@@ -1,0 +1,106 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <title>noti banner manual</title>
+  </head>
+  <body>
+    <p id="fecha1"></p>
+    <p id="fecha2"></p>
+    <p id="carrier1"></p>
+    <p id="carrier2"></p>
+    <img src="screenshot1.jpg" width="320px" />
+    <img src="screenshot2.jpg" width="320px" />
+    <img id="output1" />
+    <img id="output2" />
+    <div id="selector">
+      <input type="text" id="entrada" value="Fecha" /><button
+        onclick="myFunction()"
+      >
+        ACTUALIZAR
+      </button>
+      <input type="text" id="entrada00" value="Operador" /><button
+        onclick="carrier()"
+      >
+        ACTUALIZAR
+      </button>
+      <br /><br />
+      320x50:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+    </div>
+    <style>
+      #fecha1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 25px;
+        top: 1px;
+      }
+      #fecha2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 345px;
+        top: 44.25px;
+      }
+      #carrier1 {
+        color: #f8f8f8;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 215px;
+        top: 124px;
+      }
+      #carrier2 {
+        color: black;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 345px;
+        top: 3px;
+      }
+      #output1 {
+        position: absolute;
+        left: 8px;
+        top: 164px;
+      }
+      #output2 {
+        position: absolute;
+        left: 332px;
+        top: 166px;
+      }
+      #selector {
+        position: absolute;
+        top: 10%;
+        left: 55%;
+        width: 41%;
+        background-color: #0078d7;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("entrada").value;
+        document.getElementById("fecha1").innerHTML = x;
+        document.getElementById("fecha2").innerHTML = x;
+      }
+      function carrier() {
+        var g = document.getElementById("entrada00").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
+      }
+      var loadFile = function(event) {
+        var output1 = document.getElementById("output1");
+        var output2 = document.getElementById("output2");
+        output1.src = URL.createObjectURL(event.target.files[0]);
+        output2.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>

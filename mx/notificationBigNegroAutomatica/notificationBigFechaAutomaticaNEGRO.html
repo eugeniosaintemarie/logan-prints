@@ -1,13 +1,33 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>noti BIG manual NEGRO</title>
+    <title>noti BIG auto NEGRO</title>
   </head>
   <body>
-    <p id="hora1"></p>
-    <p id="hora2"></p>
-    <p id="fecha1"></p>
-    <p id="fecha2"></p>
+    <div class="container">
+      <p id="fecha1">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+      </p>
+    </div>
+    <div class="container">
+      <p id="fecha2">
+        <span id="timer-days2"></span>
+        <span id="timer-hours2"></span>
+        <span id="timer-mins2"></span>
+        <span id="timer-secs2"></span>
+      </p>
+    </div>
+    <span id="fecha1"></span>
+    <p id="dia1"></p>
+    <p id="mes1"></p>
+    <p id="ano1"></p>
+    <span id="fecha2"></span>
+    <p id="dia2"></p>
+    <p id="mes2"></p>
+    <p id="ano2"></p>
     <p id="carrier1"></p>
     <p id="carrier2"></p>
     <img src="screenshot1.jpg" width="320px" />
@@ -23,27 +43,16 @@
     <p class="descripcion2" id="descripcion2"></p>
     <img id="output22" />
     <div id="selector">
-      <input type="text" id="entradaHora" value="Hora" /><button
-        onclick="hora()"
-      >
-        ACTUALIZAR
-      </button>
-      <input type="text" id="entradaFecha" value="Fecha" /><button
-        onclick="fecha()"
-      >
-        ACTUALIZAR
-      </button>
-      <br /><br />
-      <input type="text" id="entradaOperador" value="Operador" /><button
+      <input type="text" id="entrada00" value="Operador" /><button
         onclick="carrier()"
       >
         ACTUALIZAR
       </button>
       <br /><br />
-      <input type="text" id="entradaTitulo" value="Titulo" />
-      <button onclick="titulo()">ACTUALIZAR</button>
-      <input type="text" id="entradaDescripcion" value="Descripcion" />
-      <button onclick="descripcion()">ACTUALIZAR</button>
+      <input type="text" id="entrada1" value="Titulo" />
+      <button onclick="myFunction1()">ACTUALIZAR</button>
+      <input type="text" id="entrada2" value="Descripcion" />
+      <button onclick="myFunction2()">ACTUALIZAR</button>
       <br /><br />
       96x96:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
@@ -52,16 +61,16 @@
       <input type="file" accept="image/*" onchange="loadFile2(event)" />
     </div>
     <style>
-      #hora1 {
+      #fecha1 {
         color: #f8f8f8;
-        font-weight: 600;
         font-size: 20px;
+        font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
         left: 25px;
         top: 0.25px;
       }
-      #hora2 {
+      #fecha2 {
         color: black;
         font-size: 20px;
         font-weight: 600;
@@ -70,20 +79,52 @@
         left: 350px;
         top: 44.25px;
       }
-      #fecha1 {
+      #dia1 {
+        color: white;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 160px; /*150px mes doble*/
+        top: 0.25px;
+      }
+      #mes1 {
         color: #f8f8f8;
         font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 160px;
+        left: 190px; /*180px mes doble*/
         top: 0.25px;
       }
-      #fecha2 {
+      #ano1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 210px;
+        top: 0.25px;
+      }
+      #dia2 {
         color: black;
         font-size: 20px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
-        left: 460px;
+        left: 460px; /*450px mes doble*/
+        top: 44.25px;
+      }
+      #mes2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 490px; /*480px mes doble*/
+        top: 44.25px;
+      }
+      #ano2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 510px;
         top: 44.25px;
       }
       #carrier1 {
@@ -111,13 +152,13 @@
       }
       .fondo2 {
         position: absolute;
-        left: 429px;
+        left: 428px;
         top: 166px;
         width: 223.5px;
         height: 96px;
       }
       .titulo1 {
-        color: black;
+        color: white;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -126,7 +167,7 @@
         top: 178px;
       }
       .descripcion1 {
-        color: black;
+        color: white;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -134,7 +175,7 @@
         top: 198px;
       }
       .titulo2 {
-        color: black;
+        color: white;
         font-size: 15px;
         font-weight: 600;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -143,7 +184,7 @@
         top: 180px;
       }
       .descripcion2 {
-        color: black;
+        color: white;
         font-size: 12px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
@@ -163,7 +204,7 @@
       }
       #output11 {
         position: absolute;
-        left: 333px;
+        left: 332px;
         top: 166px;
       }
       #output22 {
@@ -186,31 +227,48 @@
         margin-left: -50px;
       }
     </style>
-    <script>
-      function hora() {
-        var z = document.getElementById("entradaHora").value;
-        document.getElementById("hora1").innerHTML = z;
-        document.getElementById("hora2").innerHTML = z;
+    <script type="text/javascript">
+      window.onload = function() {
+        DisplayCurrentTime();
+      };
+      function DisplayCurrentTime() {
+        var date = new Date();
+        var hours =
+        date.setHours( date.getHours() - 3) > 12 ? date.getHours() : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
+        hours = hours < 10 ? "" + hours : hours;
+        var minutes =
+          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        time = hours + ":" + minutes + " " + am_pm;
+        var fecha = document.getElementById("fecha");
+        fecha.innerHTML = time;
       }
-      function fecha() {
-        var x = document.getElementById("entradaFecha").value;
-        document.getElementById("fecha1").innerHTML = x;
-        document.getElementById("fecha2").innerHTML = x;
+      var a = new Date();
+      document.getElementById("dia1").innerHTML = a.getDate() + "/";
+      var b = new Date();
+      document.getElementById("mes1").innerHTML = b.getMonth() + 1 + "/";
+      var c = new Date();
+      document.getElementById("ano1").innerHTML = c.getFullYear();
+      var a = new Date();
+      document.getElementById("dia2").innerHTML = a.getDate() + "/";
+      var b = new Date();
+      document.getElementById("mes2").innerHTML = b.getMonth() + 1 + "/";
+      var c = new Date();
+      document.getElementById("ano2").innerHTML = c.getFullYear();
+      function carrier() {
+        var g = document.getElementById("entrada00").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
       }
-      function titulo() {
-        var e = document.getElementById("entradaTitulo").value;
+      function myFunction1() {
+        var e = document.getElementById("entrada1").value;
         document.getElementById("titulo1").innerHTML = e;
         document.getElementById("titulo2").innerHTML = e;
       }
-      function descripcion() {
-        var f = document.getElementById("entradaDescripcion").value;
+      function myFunction2() {
+        var f = document.getElementById("entrada2").value;
         document.getElementById("descripcion1").innerHTML = f;
         document.getElementById("descripcion2").innerHTML = f;
-      }
-      function carrier() {
-        var g = document.getElementById("entradaOperador").value;
-        document.getElementById("carrier1").innerHTML = g;
-        document.getElementById("carrier2").innerHTML = g;
       }
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");

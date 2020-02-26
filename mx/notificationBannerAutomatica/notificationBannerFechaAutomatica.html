@@ -1,0 +1,195 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <title>noti banner auto</title>
+  </head>
+  <body>
+    <div class="container">
+      <p id="fecha1">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+      </p>
+    </div>
+    <div class="container">
+      <p id="fecha2">
+        <span id="timer-days2"></span>
+        <span id="timer-hours2"></span>
+        <span id="timer-mins2"></span>
+        <span id="timer-secs2"></span>
+      </p>
+    </div>
+    <span id="fecha1"></span>
+    <p id="dia1"></p>
+    <p id="mes1"></p>
+    <p id="ano1"></p>
+    <span id="fecha2"></span>
+    <p id="dia2"></p>
+    <p id="mes2"></p>
+    <p id="ano2"></p>
+    <p id="carrier1"></p>
+    <p id="carrier2"></p>
+    <img src="screenshot1.jpg" width="320px" />
+    <img src="screenshot2.jpg" width="320px" />
+    <img id="output1" />
+    <img id="output2" />
+    <div id="selector">
+      <input type="text" id="entrada00" value="Operador" /><button
+        onclick="carrier()"
+      >
+        ACTUALIZAR
+      </button>
+      <br /><br />
+      320x50:
+      <input type="file" accept="image/*" onchange="loadFile(event)" />
+    </div>
+    <style>
+      #fecha1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 25px;
+        top: 0.25px;
+      }
+      #fecha2 {
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 350px;
+        top: 44.25px;
+      }
+      #dia1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 160px; /*150px mes doble*/
+        top: 0.25px;
+      }
+      #mes1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 190px; /*180px mes doble*/
+        top: 0.25px;
+      }
+      #ano1 {
+        color: #f8f8f8;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 210px;
+        top: 0.25px;
+      }
+      #dia2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 460px; /*450px mes doble*/
+        top: 44.25px;
+      }
+      #mes2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 490px; /*480px mes doble*/
+        top: 44.25px;
+      }
+      #ano2 {
+        color: black;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 510px;
+        top: 44.25px;
+      }
+      #carrier1 {
+        color: #f8f8f8;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 215px;
+        top: 124px;
+      }
+      #carrier2 {
+        color: black;
+        font-size: 12px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        left: 345px;
+        top: 3px;
+      }
+      #output1 {
+        position: absolute;
+        left: 8px;
+        top: 164px;
+      }
+      #output2 {
+        position: absolute;
+        left: 332px;
+        top: 166px;
+      }
+      #selector {
+        position: absolute;
+        top: 10%;
+        left: 55%;
+        width: 32%;
+        background-color: #0078d7;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function() {
+        DisplayCurrentTime();
+      };
+      function DisplayCurrentTime() {
+        var date = new Date();
+        var hours =
+        date.setHours( date.getHours() - 3) > 12 ? date.getHours() : date.getHours();
+        var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
+        hours = hours < 10 ? "" + hours : hours;
+        var minutes =
+          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        time = hours + ":" + minutes + " " + am_pm;
+        var fecha = document.getElementById("fecha");
+        fecha.innerHTML = time;
+      }
+      var a = new Date();
+      document.getElementById("dia1").innerHTML = a.getDate() + "/";
+      var b = new Date();
+      document.getElementById("mes1").innerHTML = b.getMonth() + 1 + "/";
+      var c = new Date();
+      document.getElementById("ano1").innerHTML = c.getFullYear();
+      var a = new Date();
+      document.getElementById("dia2").innerHTML = a.getDate() + "/";
+      var b = new Date();
+      document.getElementById("mes2").innerHTML = b.getMonth() + 1 + "/";
+      var c = new Date();
+      document.getElementById("ano2").innerHTML = c.getFullYear();
+      function carrier() {
+        var g = document.getElementById("entrada00").value;
+        document.getElementById("carrier1").innerHTML = g;
+        document.getElementById("carrier2").innerHTML = g;
+      }
+      var loadFile = function(event) {
+        var output1 = document.getElementById("output1");
+        var output2 = document.getElementById("output2");
+        output1.src = URL.createObjectURL(event.target.files[0]);
+        output2.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>

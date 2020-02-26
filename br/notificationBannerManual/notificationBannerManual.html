@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>noti 72 manual BLANCO</title>
+    <title>noti banner manual</title>
     <style>
       * {
         box-sizing: border-box;
@@ -21,36 +21,31 @@
     </style>
   </head>
   <body>
-    <p id="hora1"></p>
-    <p id="hora2"></p>
+    <div class="container">
+      <p id="hora1"></p>
+    </div>
+    <div class="container">
+      <p id="hora2"></p>
+    </div>
     <span id="fecha1"></span>
     <span id="fecha2"></span>
     <img src="screenshot1.jpg" width="290px" />
     <img src="screenshot2.jpg" width="290px" />
-    <img class="fondo1" src="fondo.jpg" />
-    <img class="fondo2" src="fondo.jpg" />
     <img id="output1" />
-    <p class="titulo1" id="titulo1"></p>
-    <p class="descripcion1" id="descripcion1"></p>
     <img id="output2" />
-    <img id="output11" />
-    <p class="titulo2" id="titulo2"></p>
-    <p class="descripcion2" id="descripcion2"></p>
-    <img id="output22" />
     <div id="selector">
-      <input type="text" id="entradaHora" value="Hora" />
-      <button onclick="hora()">ACTUALIZAR</button>
-      <input type="text" id="entradaFecha" value="Fecha" />
-      <button onclick="fecha()">ACTUALIZAR</button>
-      <br /><br />
-      <input type="text" id="entradaTitulo" value="Titulo" />
-      <button onclick="titulo()">ACTUALIZAR</button>
-      <input type="text" id="entradaDescripcion" value="Descripcion" />
-      <button onclick="descripcion()">ACTUALIZAR</button>
-      <br /><br />
-      <br /><br />
-      72x72:
+      <input type="text" id="entrada1" value="Hora" /><button onclick="hora()">
+        ACTUALIZAR
+      </button>
+      <input type="text" id="entrada2" value="Fecha" /><button
+        onclick="fecha()"
+      >
+        ACTUALIZAR
+      </button>
+      <br /><br /><br /><br />
+      320x50:
       <input type="file" accept="image/*" onchange="loadFile(event)" />
+      <br /><br />
       <div class="row">
         <div class="column">
           <p>
@@ -114,78 +109,18 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         position: absolute;
         left: 420px;
-        top: 108px;
-      }
-      .fondo1 {
-        position: absolute;
-        left: 77px;
-        top: 153px;
-        width: 218px;
-        height: 66px;
-      }
-      .titulo1 {
-        color: black;
-        font-size: 14px;
-        font-weight: bold;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 85px;
-        top: 153px;
-      }
-      .descripcion1 {
-        color: black;
-        font-size: 12px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 85px;
-        top: 177px;
+        top: 107px;
       }
       #output1 {
         position: absolute;
         left: 11px;
         top: 153px;
-        width: 66px;
+        width: 284px;
       }
       #output2 {
         position: absolute;
-        left: 11px;
-        top: 222px;
-        width: 284px;
-      }
-      .fondo2 {
-        position: absolute;
-        left: 398px;
-        top: 200px;
-        width: 194px;
-        height: 96px;
-      }
-      .titulo2 {
-        color: black;
-        font-size: 15px;
-        font-weight: 600;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 403px;
-        top: 211px;
-      }
-      .descripcion2 {
-        color: black;
-        font-size: 12px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        position: absolute;
-        left: 403px;
-        top: 235px;
-      }
-      #output11 {
-        position: absolute;
         left: 302px;
         top: 200px;
-        width: 96px;
-      }
-      #output22 {
-        position: absolute;
-        left: 302px;
-        top: 296px;
         width: 290px;
       }
       #selector {
@@ -204,36 +139,20 @@
     </style>
     <script type="text/javascript">
       function hora() {
-        var x = document.getElementById("entradaHora").value;
+        var x = document.getElementById("entrada1").value;
         document.getElementById("hora1").innerHTML = x;
         document.getElementById("hora2").innerHTML = x;
       }
       function fecha() {
-        var x = document.getElementById("entradaFecha").value;
+        var x = document.getElementById("entrada2").value;
         document.getElementById("fecha1").innerHTML = x;
         document.getElementById("fecha2").innerHTML = x;
       }
-      function titulo() {
-        var e = document.getElementById("entradaTitulo").value;
-        document.getElementById("titulo1").innerHTML = e;
-        document.getElementById("titulo2").innerHTML = e;
-      }
-      function descripcion() {
-        var f = document.getElementById("entradaDescripcion").value;
-        document.getElementById("descripcion1").innerHTML = f;
-        document.getElementById("descripcion2").innerHTML = f;
-      }
       var loadFile = function(event) {
         var output1 = document.getElementById("output1");
-        var output11 = document.getElementById("output11");
-        output1.src = URL.createObjectURL(event.target.files[0]);
-        output11.src = URL.createObjectURL(event.target.files[0]);
-      };
-      var loadFile2 = function(event) {
         var output2 = document.getElementById("output2");
-        var output22 = document.getElementById("output22");
+        output1.src = URL.createObjectURL(event.target.files[0]);
         output2.src = URL.createObjectURL(event.target.files[0]);
-        output22.src = URL.createObjectURL(event.target.files[0]);
       };
     </script>
   </body>

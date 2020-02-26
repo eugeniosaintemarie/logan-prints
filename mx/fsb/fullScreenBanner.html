@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>richMedia</title>
+    <title>fullScreenBanner</title>
   </head>
   <body>
     <div id="fechaSuperior">
@@ -20,6 +20,7 @@
     </div>
     <br /><br />
     <img id="output" width="320px" />
+    <img class="x" src="x.png" />
     <div id="selector">
       320x480: <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
@@ -46,7 +47,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 600;
         position: absolute;
-        left: 243px;
+        left: 237px; /*mesDoble 230px*/
         top: 0.25px;
       }
       #mes {
@@ -55,7 +56,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 600;
         position: absolute;
-        left: 263px;
+        left: 265px; /*mesDoble 258px*/
         top: 0.25px;
       }
       #ano {
@@ -66,6 +67,11 @@
         position: absolute;
         left: 281px;
         top: 0.25px;
+      }
+      .x {
+        position: absolute;
+        align-content: right;
+        left: 305px;
       }
       #output {
         position: absolute;
@@ -92,9 +98,7 @@
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-          date.setHours(date.getHours() - 3) > 12
-            ? date.getHours()
-            : date.getHours();
+        date.setHours( date.getHours() - 3) > 12 ? date.getHours() : date.getHours();
         var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
         hours = hours < 10 ? "" + hours : hours;
         var minutes =
@@ -106,8 +110,7 @@
       var a = new Date();
       document.getElementById("dia").innerHTML = a.getDate() + "/";
       var b = new Date();
-      document.getElementById("mes").innerHTML =
-        ("0" + b.getMonth()).slice(-1) + "/";
+      document.getElementById("mes").innerHTML = b.getMonth() + 1 + "/";
       var c = new Date();
       document.getElementById("ano").innerHTML = c.getFullYear();
       var loadFile = function(event) {
