@@ -98,11 +98,9 @@
       function DisplayCurrentTime() {
         var date = new Date();
         var hours =
-          date.setHours(date.getHours() - 3) > 12
-            ? date.getHours()
-            : date.getHours();
+          date.getHours() > 12 ? date.getHours() - 12 + 12 : date.getHours();
         var am_pm = date.getHours() >= 12 ? "" /*p.m.*/ : ""; /*a.m.*/
-        hours = hours < 10 ? "" + hours : hours;
+        hours = hours < 10 ? "0" + hours : hours;
         var minutes =
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         time = hours + ":" + minutes + " " + am_pm;
@@ -112,8 +110,7 @@
       var a = new Date();
       document.getElementById("dia").innerHTML = a.getDate() + "/";
       var b = new Date();
-      document.getElementById("mes").innerHTML =
-        ("0" + b.getMonth()).slice(-1) + 1 + "/";
+      document.getElementById("mes").innerHTML = b.getMonth() + 1 + "/";
       var c = new Date();
       document.getElementById("ano").innerHTML = c.getFullYear();
       var loadFile = function(event) {
