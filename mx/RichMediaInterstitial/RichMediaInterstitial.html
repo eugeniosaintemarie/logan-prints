@@ -1,7 +1,7 @@
 <!DOCTYPE html5>
 <html>
   <head>
-    <title>fullScreenBanner</title>
+    <title>Rich Media InstertitialRich Media Interstitial</title>
   </head>
   <body>
     <div id="fechaSuperior">
@@ -20,7 +20,6 @@
     </div>
     <br /><br />
     <img id="output" width="320px" />
-    <img class="x" src="x.png" />
     <div id="selector">
       320x480: <input type="file" accept="image/*" onchange="loadFile(event)" />
     </div>
@@ -47,7 +46,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 600;
         position: absolute;
-        left: 237px; /*mesDoble 230px*/
+        left: 220px;
         top: 0.25px;
       }
       #mes {
@@ -56,7 +55,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 600;
         position: absolute;
-        left: 265px; /*mesDoble 258px*/
+        left: 252px;
         top: 0.25px;
       }
       #ano {
@@ -67,11 +66,6 @@
         position: absolute;
         left: 281px;
         top: 0.25px;
-      }
-      .x {
-        position: absolute;
-        align-content: right;
-        left: 305px;
       }
       #output {
         position: absolute;
@@ -110,7 +104,7 @@
       var a = new Date();
       document.getElementById("dia").innerHTML = a.getDate() + "/";
       var b = new Date();
-      document.getElementById("mes").innerHTML = b.getMonth() + 1 + "/";
+      document.getElementById("mes").innerHTML = ("0" + (b.getMonth()+1)).slice(-2)  + "/";
       var c = new Date();
       document.getElementById("ano").innerHTML = c.getFullYear();
       var loadFile = function(event) {
